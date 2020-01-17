@@ -1,0 +1,198 @@
+#gift {
+  position: relative; }
+  #gift .middle_left {
+    float: left;
+    width: 320px;
+    margin: 0 8px 0 0; }
+    #gift .middle_left .popularGiftPackage {
+      background-color: #ffffff; }
+      #gift .middle_left .popularGiftPackage .class_title {
+        margin: 0 10px;
+        height: 57px;
+        line-height: 57px;
+        border-bottom: 1px solid #dddddd; }
+        #gift .middle_left .popularGiftPackage .class_title i {
+          display: block;
+          width: 5px;
+          height: 24px;
+          background: #38affd;
+          float: left;
+          margin-top: 18px; }
+        #gift .middle_left .popularGiftPackage .class_title .font_color {
+          color: #333333;
+          font-size: 24px; }
+          #gift .middle_left .popularGiftPackage .class_title .font_color span {
+            margin-left: 8px; }
+      #gift .middle_left .popularGiftPackage #popular .game_info {
+        margin: 0 10px;
+        height: 78px;
+        border-bottom: 1px dashed #eeeeee; }
+        #gift .middle_left .popularGiftPackage #popular .game_info a {
+          color: #333333; }
+          #gift .middle_left .popularGiftPackage #popular .game_info a .game_img {
+            margin: 8px 10px 8px 0;
+            width: 60px;
+            float: left; }
+            #gift .middle_left .popularGiftPackage #popular .game_info a .game_img img {
+              width: 100%;
+              height: 100%;
+              border-radius: 10px; }
+          #gift .middle_left .popularGiftPackage #popular .game_info a .game_package {
+            display: inline-block;
+            margin: 8px 0 0 0;
+            height: 60px;
+            width: 120px;
+            overflow: hidden; }
+            #gift .middle_left .popularGiftPackage #popular .game_info a .game_package p:first-child {
+              font-size: 14px;
+              height: 20px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap; }
+            #gift .middle_left .popularGiftPackage #popular .game_info a .game_package p:nth-child(2) {
+              font-size: 12px;
+              margin: 3px 0;
+              color: #999999; }
+              #gift .middle_left .popularGiftPackage #popular .game_info a .game_package p:nth-child(2) span {
+                color: #fd8707; }
+            #gift .middle_left .popularGiftPackage #popular .game_info a .game_package p:nth-child(3) {
+              font-size: 12px;
+              color: #999999; }
+      #gift .middle_left .popularGiftPackage .receive {
+        float: right;
+        margin: 26px 10px 0 0;
+        border-radius: 4px;
+        border: 1px solid #38b0fe;
+        width: 60px;
+        height: 28px;
+        background-color: #38b0fe;
+        color: #ffffff;
+        font-size: 14px; }
+  #gift .middle_right {
+    float: right;
+    width: 872px; }
+    #gift .middle_right .giftPackageList {
+      background-color: #ffffff; }
+      #gift .middle_right .giftPackageList .class_title {
+        margin: 0 10px;
+        height: 57px;
+        line-height: 57px;
+        border-bottom: 1px solid #dddddd; }
+        #gift .middle_right .giftPackageList .class_title i {
+          display: block;
+          width: 5px;
+          height: 24px;
+          background: #38affd;
+          float: left;
+          margin-top: 18px; }
+        #gift .middle_right .giftPackageList .class_title .font_color {
+          color: #333333;
+          font-size: 24px; }
+          #gift .middle_right .giftPackageList .class_title .font_color span {
+            margin-left: 8px; }
+      #gift .middle_right .giftPackageList .packageList {
+        margin: 0 10px; }
+        #gift .middle_right .giftPackageList .packageList .searchGiftPackage {
+          margin: 15px 0 0 245px;
+          text-align: center; }
+          #gift .middle_right .giftPackageList .packageList .searchGiftPackage div {
+            border: 1px solid #38b0fe;
+            width: 350px;
+            height: 38px;
+            border-radius: 20px; }
+            #gift .middle_right .giftPackageList .packageList .searchGiftPackage div input:first-child {
+              width: 270px;
+              height: 36px;
+              font-size: 14px;
+              color: #cdcdcd; }
+            #gift .middle_right .giftPackageList .packageList .searchGiftPackage div input:last-child {
+              background: #38b0fe url(../../images/sous.png) no-repeat center;
+              height: 38px;
+              width: 45px;
+              border-bottom-right-radius: 17px;
+              border-top-right-radius: 17px;
+              float: right; }
+        #gift .middle_right .giftPackageList .packageList ul {
+          margin: 0 10px; }
+          #gift .middle_right .giftPackageList .packageList ul .gift_info {
+            height: 146px;
+            border-bottom: 1px dashed #eeeeee; }
+            #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_img {
+              float: left;
+              margin: 12px 10px 0 0;
+              width: 122px;
+              height: 122px; }
+              #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_img img {
+                width: 100%;
+                height: 100%;
+                border-radius: 21px; }
+            #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail {
+              display: inline-block;
+              margin: 13px 0 0 0;
+              color: #999999;
+              font-size: 12px;
+              width: 65%; }
+              #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail p {
+                margin: 10px 0 0 0; }
+              #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail p:first-child {
+                font-size: 14px;
+                color: #333333; }
+              #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail .progress {
+                position: relative;
+                margin: -18px 0 0 35px;
+                width: 360px;
+                background-color: #d7d7d7;
+                height: 20px;
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
+                #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail .progress .sr_only {
+                  position: absolute;
+                  left: 47%;
+                  text-align: center;
+                  margin: 0 auto;
+                  color: #fff;
+                  font-size: 14px;
+                  line-height: 20px; }
+                #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail .progress .progress_bar {
+                  background-color: #38b0fe;
+                  background-image: -webkit-linear-gradient(133deg, rgba(255, 255, 255, 0.15) 23%, transparent 23%, transparent 51%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+                  background-image: -o-linear-gradient(133deg, rgba(255, 255, 255, 0.15) 23%, transparent 23%, transparent 51%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+                  background-image: linear-gradient(133deg, rgba(255, 255, 255, 0.15) 23%, transparent 23%, transparent 51%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+                  -webkit-background-size: 40px 40px;
+                  background-size: 40px 40px;
+                  float: left;
+                  height: 100%;
+                  font-size: 12px;
+                  line-height: 25px;
+                  color: #fff;
+                  text-align: center;
+                  transition: width .6s ease;
+                  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+                  border-radius: 10px; }
+                #gift .middle_right .giftPackageList .packageList ul .gift_info a .gift_detail .progress .gift_list_content {
+                  height: 20px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap; }
+            #gift .middle_right .giftPackageList .packageList ul .gift_info .receive {
+              display: inline-block;
+              float: right;
+              margin: 55px 30px 0 0;
+              width: 100px;
+              height: 36px;
+              text-align: center;
+              line-height: 36px;
+              border: 1px solid #38b0fe;
+              border-radius: 7px;
+              color: #38b0fe;
+              font-size: 14px; }
+      #gift .middle_right .giftPackageList .load_more {
+        text-align: center;
+        height: 28px;
+        font-size: 14px; }
+        #gift .middle_right .giftPackageList .load_more a {
+          text-decoration: none;
+          color: #000000; }
+
+/*# sourceMappingURL=gift.css.map */

@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>游戏平台-首页</title>
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
+
+    <link href="../pcStatic/css/swiper.min.css" rel="stylesheet">
+    <link href="../pcStatic/css/su/index.css" rel="stylesheet">
+    <link href="../pcStatic/css/hui-reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="../pcStatic/css/style.css?v=1.23">
+    <script type="text/javascript" src="../pcStatic/js/jquery.qrcode.min.js"></script>
+
+
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="/pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="/pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="/pc/game_hub/game_hub.html"><img src="../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="./index.html" class="on">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="./game_hub/game_hub.html" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="./pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="./server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="./gift/index.html" class="w ">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="./news_list/index.html" class="">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="./user/my_center.html" class="">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href="/game/10902" target="_blank">
+                <img alt="" src="http://dl.4177.com//190425/817abb91301f27d68d45354a8b6ab44b13cfecbc.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="/game/10868?base_url=aHR0cDovL3d3dy40MTc3LmNvbQ==&amp;uid=NjQxMjAxMzA=" target="_blank">
+                <img alt="" src="http://dl.4177.com//190311/df1ec200b8d243139df2353dfad68c74d7042155.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="/game/10708" target="_blank"><img
+                    alt="" src="http://dl.4177.com//190426/28957a77e5ba9cf654cc7efecf554d4722dfc082.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="game/10837?base_url=aHR0cDovL3d3dy40MTc3LmNvbQ==&amp;uid=NjQxMjAxMzA=" target="_blank"><img
+                    alt="" src="http://dl.4177.com//190415/5c35511113252b0ce98002ca9a0d24406766ba66.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="/game/10861" target="_blank"><img
+                    alt="" src="http://dl.4177.com//190307/00b927e5fa29a3be2a599a07076c03b2cc88cd35.jpg"></a>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination" style="bottom: 120px"></div>
+</div>
+
+<div id="content">
+    <div id="page_name" style="display: none;">index</div>
+    <!--精品推荐，我玩过的-->
+    <div class="boutique">
+        <div class="boutique_top">
+            <a class="font_color on" onclick="btopTab(0)">精品推荐</a>
+            <a class="font_color" id="iPlayed_title" onclick="btopTab(1)" style="">我玩过的</a>
+        </div>
+        <div class="boutique_bottom">
+
+            <!--            精品推荐-->
+            <div class="boutique_div topTab">
+                <ul id="boutique">
+                    <script id="boutiqueleft_T" type="text/html">
+                        <%data.forEach(function (news) {%>
+                        <li class="yx">
+                            <a href="/pc/detail_page/game_detail/<%:=news.id%>" title="<%:=news.name%>">
+                                <div class="yx_img">
+                                    <img src="<%:=news.new_img%>">
+                                </div>
+                                <div class="game_cover" style="display: none;" title="<%:=news.name%>">
+                                    <div class="game_qr_code" id="boutique_game_10895">
+                                        <canvas height="90" width="90"></canvas>
+                                    </div>
+                                    <div class="game_info"><p class="p1"><%:=news.name%></p>
+                                        <p class="p2">77445&nbsp;人玩过</p>
+                                        <p class="p3">类型：<%:=news.type_name%></p>
+                                        <p class="p4">扫一扫，直接玩</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="yx_info">
+                                <a href="/pc/detail_page/game_detail/<%:=news.id%>">
+                                    <span><%:=news.name%></span>
+                                </a>
+                                <a href="http://www.4177.com/game/10895" target="_blank">
+                                    <input class="game_start" type="button" value="开始游戏">
+                                </a>
+                            </div>
+                        </li>
+                        <%})%>
+                    </script>
+                </ul>
+            </div>
+            <!--            我玩过的-->
+            <div class="played_div topTab" style="display: none">
+                <ul id="home_iplayed">
+                    <script id="boutiqueright_T" type="text/html">
+                        <%data.forEach(function (news) {%>
+                        <li class="yx">
+                            <a href="/pc/info/10897">
+                                <div class="yx_img">
+                                    <img alt=""
+                                         src="<%:=news.logo%>">
+                                </div>
+                            </a>
+                            <a class="yx_info" href="/pc/info/10897"> <span> <%:=news.name%> </span><br> <span
+                                    class="juese"><%:=news.type_name%> <br> <%:=news.popularity%>人玩过</span></a><br>
+                            <a href="http://www.4177.com/game/10897">
+                                <input class="game_start" type="button" value="开始游戏">
+                            </a>
+                        </li>
+                        <%})%>
+                    </script>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 首页上边图片 -->
+    <div class="image_ad" id="ad_one">
+        <script id="ad_one_T" type="text/html">
+            <a href="/game/10720" target="_blank">
+                <img alt="" src="<%:=topic_img[0].topic_big_img%>"></a>
+        </script>
+    </div>
+
+    <div class="middle_left">
+
+        <!--开服列表-->
+        <div class="open_service_list">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>开服列表</span></span>
+                <a href="/pc/server">更多&gt;&gt;</a>
+            </div>
+            <ul id="open_server_list">
+                <script id="server_list_T" type="text/html">
+                    <%data.forEach(function (news) {%>
+                    <li><a href="http://www.4177.com/game/10580" target="_blank">
+                        <span> <%:=news.game_name%> </span><span> <%:=news.server_name%></span>
+                        <span> <%:=news.open_time%></span></a>
+                    </li>
+                    <%})%>
+                </script>
+            </ul>
+        </div>
+
+        <!-- 首页左边图片 -->
+        <div class="image_ad3" id="ad_two">
+            <script id="ad_two_T" type="text/html">
+                <a href="/game/10473" target="_blank"><img
+                        alt="" src="<%:=topic_img[1].topic_big_img%>"></a>
+            </script>
+        </div>
+
+        <!--最新资讯-->
+        <div class="latest_news">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>最新资讯</span></span>
+                <a href="/pc/news_list">更多&gt;&gt;</a>
+            </div>
+            <ul id="latest_news">
+                <script id="latest_news_T" type="text/html">
+                    <%data.forEach(function (news) {%>
+                    <li>
+                        <a href="/pc/news/3210">
+                            <span class="hd">活动</span>
+                            <span>|</span>
+                            <span> <%:=news.intro%></span>
+                        </a>
+                    </li>
+                    <%})%>
+                </script>
+
+            </ul>
+        </div>
+
+        <!--游戏专题-->
+        <div class="game_topic">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>游戏专题</span></span>
+                <a href="../pc/index/topic.html">更多&gt;&gt;</a>
+            </div>
+            <ul id="game_topic">
+                <script id="game_topic_T" type="text/html">
+                    <%data.forEach(function (news) {%>
+                    <li><a href="/pc/topic?topic_id=98#topic_game"><i>•</i>仙侠系列游戏集合 <span
+                            class="topic_time">04-08</span></a></li>
+                    <%})%>
+                </script>
+            </ul>
+        </div>
+
+        <!--快速通道-->
+        <div class="expressway">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>快速通道</span></span>
+
+            </div>
+            <style>.middle_left .expressway ul li {
+                margin-top: 40px;
+            }</style>
+            <ul>
+                <li>
+                    <a href="javascript:" onclick="login_href('register')">
+                        <img alt="" src="../pcStatic/images/mfzc.png"><br>
+                        <span>免费注册</span></a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="login_href('mobile')">
+                        <img alt="" src="../pcStatic/images/bdsj.png"><br>
+                        <span>绑定手机</span></a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="login_href('password')">
+                        <img alt="" src="../pcStatic/images/zhmm.png"><br>
+                        <span style="color: #2dc270;">找回密码</span></a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="login_href('customer_service')">
+                        <img alt="" src="../pcStatic/images/kfzx.png"><br>
+                        <span style="color: #38b0fe;">客服中心</span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="middle_right">
+
+        <div class="clear" style="clear: both;"></div>
+        <!--新游推荐-->
+        <div class="new_tour">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>新游推荐</span></span>
+                <a href="/pc/game">更多&gt;&gt;</a>
+            </div>
+            <ul id="new_game">
+                <script id="game_new_T" type="text/html">
+                    <%data.forEach(function (news) {%>
+                    <li class="yx"><a href="/pc/info/10895">
+                        <div class="yx_img" title="<%:=news.name%>"><img
+                                alt="" src="<%:=news.new_img%>">
+                        </div>
+                        <div class="game_cover" style="display: none;" title="<%:=news.name%>">
+                            <div class="game_qr_code" id="new_game_10895">
+                                <canvas height="90" width="90"></canvas>
+                            </div>
+                            <div class="game_info"><p class="p1"><%:=news.name%></p>
+                                <p class="p2">77445&nbsp;人玩过</p>
+                                <p class="p3">类型：角色扮演</p>
+                                <p class="p4">扫一扫，直接玩</p></div>
+                        </div>
+                    </a>
+                        <div class="yx_info"><a href="/pc/info/10895"> <span> <%:=news.name%></span> </a><a
+                                href="http://www.4177.com/game/10895" target="_blank">
+                            <input class="game_start" type="button" value="开始游戏"> </a></div>
+                    </li>
+                    <%})%>
+                </script>
+            </ul>
+        </div>
+
+        <div class="clear" style="clear: both;"></div>
+        <!--热门游戏-->
+        <div class="popular">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>热门游戏</span></span>
+                <a href="/pc/game">更多&gt;&gt;</a>
+            </div>
+            <ul id="hot_game">
+                <script id="hot_game_T" type="text/html">
+                    <%data.forEach(function (news) {%>
+                    <li class="yx"><a href="/pc/info/10779" title="<%:=news.name%>">
+                        <div class="yx_img"><img
+                                alt="" src="<%:=news.logo%>">
+                        </div>
+                        <div class="game_cover" title="<%:=news.name%>">
+                            <div class="game_qr_code" id="hot_game_10779">
+                                <canvas height="80" width="80"></canvas>
+                            </div>
+                        </div>
+                    </a>
+                        <div class="yx_info"><a href="/pc/info/10779">
+                            <span class="yx_name"><%:=news.name%></span><br>
+                            <div class="juese"><span> <%:=news.type_name%></span>
+                                <span><br></span><span> <%:=news.popularity%>人玩过</span>
+                            </div>
+                        </a><br>
+                            <a href="http://www.4177.com/game/10779" onclick="game_click(10779)" target="_blank">
+                                <input class="game_start" type="button" value="开始游戏"> </a>
+                        </div>
+                    </li>
+                    <%})%>
+                </script>
+            </ul>
+        </div>
+
+        <div class="clear" style="clear: both;"></div>
+
+        <!--更多游戏-->
+        <div class="more">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>更多游戏</span></span>
+                <a href="/pc/game">更多&gt;&gt;</a>
+            </div>
+            <ul id="more_game">
+                <script id="game_more_T" type="text/html">
+                    <%data.forEach(function (news) {%>
+                    <li class="img_more">
+                        <a href="http://www.4177.com/game/10697" title="<%:=news.name%>" onclick="game_click(10697)" target="_blank"> <img alt="" src="<%:=news.logo%>">
+                        <div class="game_cover" title="<%:=news.name%>">
+                            <div class="game_qr_code" id="more_game_10697">
+                                <canvas height="90" width="90"></canvas>
+                            </div>
+                            <div class="game_info"><p class="p4">扫一扫，直接玩</p></div>
+                        </div>
+                        <div class="game_name"><%:=news.name%></div>
+                    </a></li>
+                    <%})%>
+                </script>
+            </ul>
+        </div>
+        <div class="clear" style="clear: both;"></div>
+
+        <!--游戏专题-图片展示-->
+        <div class="game_topic_img" id="game_topic_img">
+            <script id="game_topic_img_T" type="text/html">
+                <a class="topic_one" href="/pc/topic?topic_id=98#topic_game">
+                    <img alt="" src="<%:=game_topic_img[0].topic_big_img%>">
+                    <div class="topic_title"><%:=game_topic_img[0].topic_name%></div>
+                </a>
+                <div class="topic_two"><a href="/pc/topic?topic_id=99#topic_game">
+                    <img
+                            alt="" src="<%:=game_topic_img[0].topic_big_img%>">
+                    <div class="topic_title"><%:=game_topic_img[0].topic_name%></div>
+                </a><a href="/pc/topic?topic_id=100#topic_game">
+                    <img
+                            alt="" src="<%:=game_topic_img[0].topic_big_img%>">
+                    <div class="topic_title"><%:=game_topic_img[0].topic_name%></div>
+                </a>
+                </div>
+            </script>
+
+        </div>
+
+        <!--游戏礼包-->
+        <div class="package">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>游戏礼包</span></span>
+                <a href="/pc/gift">更多&gt;&gt;</a>
+            </div>
+            <ul id="package">
+                <div class="libao package_one" id="package_one">
+                    <script id="package_list_one" type="text/html">
+                        <%data.forEach(function (news) {%>
+                        <li title="<%:=news.game_name%> - <%:=news.name%>">
+                            <a href="/pc/gift_detail/1911">
+                                <div class="yx_img">
+                                    <img alt=""
+                                         src="<%:=news.logo%>">
+                                </div>
+                                <div class="yx_info"><p><%:=news.game_name%> - <%:=news.name%></p>
+                                    <p>剩余：<span><%:=news.valid_count%>份</span>
+                                    </p></div>
+                            </a><a href="javascript:;" onclick="receive(1911,10895)">
+                            <input class="game_start" type="button" value="领取"> </a>
+                        </li>
+                        <%})%>
+                    </script>
+
+                </div>
+                <div class="libao package_two" id="package_two">
+                    <script id="package_list_two" type="text/html">
+                        <%data.forEach(function (news) {%>
+                        <li title="<%:=news.game_name%> - <%:=news.name%>">
+                            <a href="/pc/gift_detail/1911">
+                                <div class="yx_img">
+                                    <img alt=""
+                                         src="<%:=news.logo%>">
+                                </div>
+                                <div class="yx_info"><p><%:=news.game_name%> - <%:=news.name%></p>
+                                    <p>剩余：<span><%:=news.valid_count%>份</span>
+                                    </p></div>
+                            </a><a href="javascript:;" onclick="receive(1911,10895)">
+                            <input class="game_start" type="button" value="领取"> </a>
+                        </li>
+                        <%})%>
+                    </script>
+                </div>
+                <div class="libao package_three" id="package_three">
+                    <script id="package_list_three" type="text/html">
+                        <%data.forEach(function (news) {%>
+                        <li title="<%:=news.game_name%> - <%:=news.name%>">
+                            <a href="/pc/gift_detail/1911">
+                                <div class="yx_img">
+                                    <img alt=""
+                                         src="<%:=news.logo%>">
+                                </div>
+                                <div class="yx_info"><p><%:=news.game_name%> - <%:=news.name%></p>
+                                    <p>剩余：<span><%:=news.valid_count%>份</span>
+                                    </p></div>
+                            </a><a href="javascript:;" onclick="receive(1911,10895)">
+                            <input class="game_start" type="button" value="领取"> </a>
+                        </li>
+                        <%})%>
+                    </script>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- 首页下边图片 -->
+    <div class="image_ad2" id="ad_three">
+        <script id="ad_three_T" type="text/html">
+            <a href="/game/10623" target="_blank"><img
+                    alt="" src="<%:=topic_img[2].topic_big_img%>"></a>
+        </script>
+    </div>
+
+    <!--网游排行榜-->
+    <div class="middle_bottom online_games">
+        <div class="class_title">
+            <i></i>
+            <span class="font_color"><span>网游排行榜</span></span>
+            <a href="/pc/game">更多&gt;&gt;</a>
+        </div>
+        <ul class="ranking" id="online_tour_leaderBoard">
+
+            <script id="online_tour_T" type="text/html">
+                <%data.forEach(function (news) {%>
+                <li>
+                    <p class="p1"><a href="/pc/info/10654">
+                        <span class="num">1</span>
+                        <span class="yx_name"><%:=news.name%></span>
+                        <span><%:=news.popularity%>人玩过</span> </a></p>
+                    <div class="yx_img">
+                        <a href="/pc/info/10654">
+                            <img alt=""
+                                 src="<%:=news.logo%>"></a>
+                    </div>
+                    <div class="yx_info"><p><%:=news.name%></p>
+                        <a href="http://www.4177.com/game/10654" onclick="game_click(10654)" target="_blank">
+                            <input class="game_start" type="button" value="开始游戏"> </a>
+                        <span class="wg"><%:=news.popularity%>人玩过</span><br></div>
+                    <div class="one"><img alt="" src="../pcStatic/images/one.png"></div>
+                </li>
+                <%})%>
+            </script>
+        </ul>
+    </div>
+
+    <!--小游戏排行榜-->
+    <div class="middle_bottom games">
+        <div class="class_title">
+            <i></i>
+            <span class="font_color"><span>小游戏排行榜</span></span>
+            <a href="/pc/game">更多&gt;&gt;</a>
+        </div>
+        <ul class="ranking" id="small_game_leaderBoard">
+
+            <script id="small_game_T" type="text/html">
+                <%data.forEach(function (news) {%>
+                <li><p class="p1"><a href="/pc/info/10736"><span
+                        class="num">1</span> <span class="yx_name"><%:=news.name%></span>
+                    <span><%:=news.popularity%>人玩过</span> </a></p>
+                    <div class="yx_img"><a href="/pc/info/10736"><img
+                            alt="" src="<%:=news.logo%>"></a>
+                    </div>
+                    <div class="yx_info"><p><%:=news.name%></p> <a href="http://www.4177.com/game/10736"
+                                                                   onclick="game_click(10736)"
+                                                                   target="_blank"> <input class="game_start"
+                                                                                           type="button"
+                                                                                           value="开始游戏"> </a> <span
+                            class="wg"><%:=news.popularity%>人玩过</span><br></div>
+                    <div class="one"><img alt="" src="../pcStatic/images/one.png"></div>
+                </li>
+                <%})%>
+            </script>
+        </ul>
+    </div>
+
+    <!--新游排行榜-->
+    <div class="middle_bottom new_tour_list">
+        <div class="class_title">
+            <i></i>
+            <span class="font_color"><span>新游排行榜</span></span>
+            <a href="/pc/game">更多&gt;&gt;</a>
+        </div>
+        <ul class="ranking" id="new_tour_list">
+
+            <script id="new_tour_T" type="text/html">
+                <%data.forEach(function (news) {%>
+                <li><p class="p1"><a href="/pc/info/10895"><span
+                        class="num">1</span> <span class="yx_name"><%:=news.name%></span>
+                    <span><%:=news.popularity%>人玩过</span> </a></p>
+                    <div class="yx_img"><a href="/pc/info/10895"><img
+                            alt="" src="<%:=news.logo%>"></a>
+                    </div>
+                    <div class="yx_info"><p><%:=news.name%></p> <a href="http://www.4177.com/game/10895"
+                                                                   onclick="game_click(10895)"
+                                                                   target="_blank"> <input class="game_start"
+                                                                                           type="button"
+                                                                                           value="开始游戏"> </a> <span
+                            class="wg"><%:=news.popularity%>人玩过</span><br></div>
+                    <div class="one"><img alt="" src="../pcStatic/images/one.png"></div>
+                </li>
+                <%})%>
+            </script>
+
+
+        </ul>
+    </div>
+    <div class="clear" style="clear: both;"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="../pcStatic/js/swiper/swiper.min.js"></script>
+<script src="../pcStatic/js/data/index/index.js"></script>
+<script src="../pcStatic/js/jquery.min.js"></script>
+<script src="../pcStatic/js/template.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        // slide之间距离
+        spaceBetween: 30,
+
+        effect: 'fade',
+
+        //布局居中
+        centeredSlides: true,
+
+        //自动播放
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        //小点点
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        //左右按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    // 精品推荐，我玩过的  切换
+    let boutique = document.getElementsByClassName('boutique')[0];
+    let boutique_top = boutique.getElementsByClassName('boutique_top')[0].getElementsByTagName('a');
+    let topTab = boutique.getElementsByClassName('topTab');
+
+    function btopTab(index) {
+        for (let i = 0; i < boutique_top.length; i++) {
+            if (index == i) {
+                boutique_top[i].className = 'on';
+                topTab[i].style.display = 'block';
+            } else {
+                boutique_top[i].className = '';
+                topTab[i].style.display = 'none';
+            }
+        }
+    }
+
+    //数据模块
+    let boutiqueleft, boutiqueright, server_list, latest_news, game_new, game_hot, game_more, package_list, online_tour,
+        small_game, new_tour, topic_img, game_topic, game_topic_img;
+
+    //渲染模板
+    let boutiqueleft_T, boutiqueright_T, server_list_T, latest_news_T, game_new_T, hot_game_T, game_more_T,
+        package_list_one, package_list_two, package_list_three, online_tour_T, small_game_T, new_tour_T, ad_one_T,
+        ad_two_T, ad_three_T, game_topic_T, game_topic_img_T;
+
+    init();
+
+    function init() {
+        //精品推荐
+        boutiqueleft = getJsonDate('boutiqueleft', 8).data;
+        boutiqueleft_T = template(document.getElementById('boutiqueleft_T').innerHTML);
+        let boutiqueleft_HTML = boutiqueleft_T({data: boutiqueleft});
+        document.getElementById('boutique').innerHTML = boutiqueleft_HTML;
+
+        //我玩过的
+        boutiqueright = getJsonDate('boutiqueright', 10).data;
+        boutiqueright_T = template(document.getElementById('boutiqueright_T').innerHTML);
+        let boutiqueright_HTML = boutiqueright_T({data: boutiqueright});
+        document.getElementById('home_iplayed').innerHTML = boutiqueright_HTML;
+
+        //开服列表
+        server_list = getJsonDate('server_list', 8).data;
+        server_list_T = template(document.getElementById('server_list_T').innerHTML);
+        let server_list_HTML = server_list_T({data: server_list});
+        document.getElementById('open_server_list').innerHTML = server_list_HTML;
+
+        //最新资讯
+        latest_news = getJsonDate('latest_news', 8).data;
+        latest_news_T = template(document.getElementById('latest_news_T').innerHTML);
+        let latest_news_T_HTML = latest_news_T({data: latest_news});
+        document.getElementById('latest_news').innerHTML = latest_news_T_HTML;
+
+        //游戏专题
+        game_topic = getJsonDate('game_topic', 5).data;
+        game_topic_T = template(document.getElementById('game_topic_T').innerHTML);
+        let game_topic_T_HTML = game_topic_T({data: game_topic});
+        document.getElementById('game_topic').innerHTML = game_topic_T_HTML;
+
+        //游戏专题-图片展示
+        game_topic_img = getJsonDate('game_topic_img', 3).data;
+        game_topic_img_T = template(document.getElementById('game_topic_img_T').innerHTML);
+        let game_topic_img_T_HTML = game_topic_img_T({data: game_topic_img});
+        document.getElementById('game_topic_img').innerHTML = game_topic_img_T_HTML;
+
+        //新游推荐
+        game_new = getJsonDate('game_new', 6).data;
+        game_new_T = template(document.getElementById('game_new_T').innerHTML);
+        let game_new_T_HTML = game_new_T({data: game_new});
+        document.getElementById('new_game').innerHTML = game_new_T_HTML;
+
+        //热门游戏
+        game_hot = getJsonDate('game_hot', 12).data;
+        hot_game_T = template(document.getElementById('hot_game_T').innerHTML);
+        let hot_game_T_HTML = hot_game_T({data: game_hot});
+        document.getElementById('hot_game').innerHTML = hot_game_T_HTML;
+
+        //更多游戏
+        game_more = getJsonDate('game_more', 6).data;
+        game_more_T = template(document.getElementById('game_more_T').innerHTML);
+        let game_more_T_HTML = game_more_T({data: game_more});
+        document.getElementById('more_game').innerHTML = game_more_T_HTML;
+
+        //游戏礼包
+        package_list = getJsonDate('package_list', 3).data;
+
+        package_list_one = template(document.getElementById('package_list_one').innerHTML);
+        package_list_two = template(document.getElementById('package_list_two').innerHTML);
+        package_list_three = template(document.getElementById('package_list_three').innerHTML);
+
+        let package_list_one_HTML = package_list_one({data: package_list});
+        let package_list_two_HTML = package_list_two({data: package_list});
+        let package_list_three_HTML = package_list_three({data: package_list});
+
+        document.getElementById('package_one').innerHTML = package_list_one_HTML;
+        document.getElementById('package_two').innerHTML = package_list_two_HTML;
+        document.getElementById('package_three').innerHTML = package_list_three_HTML;
+
+        //网游排行榜
+        online_tour = getJsonDate('online_tour', 10).data;
+        online_tour_T = template(document.getElementById('online_tour_T').innerHTML);
+        let online_tour_T_HTML = online_tour_T({data: online_tour});
+        document.getElementById('online_tour_leaderBoard').innerHTML = online_tour_T_HTML;
+
+        //小游戏排行榜
+        small_game = getJsonDate('small_game', 10).data;
+        small_game_T = template(document.getElementById('small_game_T').innerHTML);
+        let small_game_T_HTML = small_game_T({data: small_game});
+        document.getElementById('small_game_leaderBoard').innerHTML = small_game_T_HTML;
+
+        //新游排行榜
+        new_tour = getJsonDate('new_tour', 10).data;
+        new_tour_T = template(document.getElementById('new_tour_T').innerHTML);
+        let new_tour_T_HTML = new_tour_T({data: new_tour});
+        document.getElementById('new_tour_list').innerHTML = new_tour_T_HTML;
+
+        //图片集合专题
+        topic_img = getJsonDate('topic_img', 3).data;
+
+        ad_one_T = template(document.getElementById('ad_one_T').innerHTML);
+        ad_two_T = template(document.getElementById('ad_two_T').innerHTML);
+        ad_three_T = template(document.getElementById('ad_three_T').innerHTML);
+
+        let ad_one_T_HTML = ad_one_T({data: topic_img});
+        let ad_two_T_HTML = ad_two_T({data: topic_img});
+        let ad_three_T_HTML = ad_three_T({data: topic_img});
+
+        document.getElementById('ad_one').innerHTML = ad_one_T_HTML;
+        document.getElementById('ad_two').innerHTML = ad_two_T_HTML;
+        document.getElementById('ad_three').innerHTML = ad_three_T_HTML;
+
+
+        //事件委托 排行榜li经过事件
+        $('.ranking').on('mouseenter', 'li', function () {
+            $(this).children('.yx_img,.yx_info,.one').show();
+            $(this).children('.p1').hide();
+            $(this).siblings().children('.yx_img,.yx_info,.one').hide();
+            $(this).siblings().children('.p1').show();
+        })
+    }
+
+</script>
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="/pc">关于我们</a> | <a href="/pc">商务合作</a> |
+                <a href="/pc">家长监护</a> | <a href="/pc">联系我们</a> |
+                <a href="" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="../pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--右侧栏二维码-->
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="../pcStatic/images/appDownload.png" alt="">
+</a>
+<!--返回顶部按钮-->
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="../pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        var scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop === 0) clearTimeout(scrolldelay);
+    }
+
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+
+</script>
+</body>
+</html>

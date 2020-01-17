@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="../../pcStatic/css/su/login.css" rel="stylesheet">
+    <title>登录</title>
+</head>
+<body>
+<div class="wrap_index">
+    <div class="login_content">
+        <div class="logo tc">
+            <img src="https://passport.4177.com/assets/images/nlogo.png">
+        </div>
+        <form>
+            <input id="referrer" type="hidden">
+            <!--            登录、注册-->
+            <div id="login" style="display:none">
+                <dd class="phone">
+                    <input class="inputt" id="login_phone" name="" value="123456789@qq.com" placeholder="输入邮箱 " type="text">
+                </dd>
+                <dd class="password">
+                    <input class="inputt" id="login_password" name="" value="123456" placeholder="输入密码 " type="password">
+                </dd>
+                <dd class="read">
+                    <p id="forget_btn" onclick="forgetFn()"><a href="javascript://">忘记密码?</a></p>
+                </dd>
+                <p class="err-msg" id="login_err"></p>
+                <input class="sub zc" id="login_sub" onclick="loginFn()" type="button" value="登录/一键注册">
+            </div>
+            <!--            修改密码-->
+            <div id="register" style="">
+                <dd class="reg_pwd dd_reg">
+                    <span>请输入密码：</span>
+                    <input class="inputp" id="reg_phone" name="" placeholder=" " type="text">
+                </dd>
+                <dd class="reg_pwd1 dd_reg">
+                    <span>请确认密码：</span>
+                    <input class="inputp" id="reg_password" name="" placeholder=" " type="password">
+                </dd>
+                <dd class="read">
+                    <!--                    <label>*登录即表示你同意<a href="http://open.4177.com/user/protocol">《用户协议》</a></label>-->
+                    <p class="return"><a href="">返回上一页</a></p>
+                </dd>
+                <p class="err-msg" id="reg_err"></p>
+                <input class="sub zc" id="reg_sub" onclick="regFn()" type="button" value="免费注册 ">
+            </div>
+            <!--            忘记密码-->
+            <div id="forget" style="display:none">
+                <dd class="phone">
+                    <input class="inputt" id="for_phone" name="" value="123456789@qq.com" placeholder="输入邮箱 " type="text">
+                </dd>
+                <p class="err-msg" id="for_err"></p>
+                <dd class="read">
+                    <p class="return"><a href="">返回上一页</a></p>
+                </dd>
+                <input class="sub zc" id="for_sub" onclick="registerFn()" type="button" value="修改密码 ">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="../../pcStatic/js/jquery.min.js"></script>
+<script>
+    let forget = document.getElementById('forget');
+    let login = document.getElementById('login');
+    let register = document.getElementById('register');
+
+    //跳转到忘记密码
+    function forgetFn() {
+        forget.style.display = 'block';
+        login.style.display = 'none';
+    }
+
+    // 跳转到修改密码
+    function registerFn() {
+        register.style.display = 'block';
+        forget.style.display = 'none';
+    }
+
+     let url_root = 'http://cspayzx.4884.com:8081/';
+     let url_api = url_root +'api/user/';
+     let url_userLogin = url_api + 'userLogin';
+     let url_EmailVerification = url_api + 'EmailVerification'
+
+    //登录
+    function loginFn() {
+        $.ajax({
+            url: url_userLogin,
+            type: 'post',
+            data: {
+                account: $('#login_phone').val(),
+                password: $('#login_password').val(),
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.cod === 200) {
+                    // window.location.href='http://localhost:63342/gamePlatform/pc/index.html'
+                }
+            },
+            error: function (err) {
+
+            }
+        })
+    }
+
+    //忘记密码
+    function registerFn() {
+        $.ajax({
+            url: url_EmailVerification,
+            type: 'post',
+            data: {
+                email: $('#for_phone').val()
+            },
+            dataType: 'json',
+            success:function () {
+                if (data.code === 200) {
+
+                }
+            }
+        })
+    }
+
+</script>
+</html>

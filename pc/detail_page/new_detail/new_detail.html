@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="../../../pcStatic/images/favicon.ico">
+    <title>游戏平台,资讯详情</title>
+    <meta name="keywords" content="游戏中心,游戏,传奇世界,龙女传奇,雄霸传奇,口袋妖怪,手机页游助手">
+    <meta name="description"
+          content="游戏平台，提供传奇世界H5、决战沙城H5、烈火星辰H5、妖怪宝可萌H5等最热免费H5游戏在线玩，找不用下载手机网页游戏，独特手机页游助手微端4177游戏，让您解放微信窗口，畅享H5游戏生活。">
+    <link rel="stylesheet" type="text/css" href="../../../pcStatic/css/bootstrap3.0.min.css">
+    <link rel="stylesheet" href="../../../pcStatic/css/style.css?v=1.23">
+    <link rel="stylesheet" href="../../../pcStatic/css/hui-reset.css">
+    <link rel="stylesheet" href="../../../pcStatic/css/sign_in.css">
+    <link rel="stylesheet" href="../../../pcStatic/css/xm_css/xm_css.css">
+    <script type="text/javascript" src="../../../pcStatic/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../pcStatic/js/jquery.qrcode.min.js"></script>
+    <script src="../../../pcStatic/js/clipboard.min.js"></script>
+</head>
+<body style="zoom: 1;" id="page_top">
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../../../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../../../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="../../../follow"><img src="../../../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="/pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="/pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../../../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="../../../pc/game_hub/game_hub.html"><img src="../../../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../../../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../../pc/index.html" class="">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="../../../pc/game_hub/game_hub.html" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../../pc/pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../../pc/server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../../pc/gift/index.html" class="">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../../pc/news_list/index.html" class="on">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="../../../pc/user/my_center.html" class="">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="bg_img">
+    <img src="../../../pcStatic/images/beijing.jpg" alt="">
+</div>
+<div id="content">
+    <div id="page_name"></div>
+    <div class="position">
+        <span>当前位置：</span><a href="/pc">首页</a>&gt;<a href="/pc/news_list">资讯</a>&gt;详情
+    </div>
+    <div class="middle_left">
+        <!--最新资讯-->
+        <div class="latestNews">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>最新资讯</span></span>
+                <a href="/pc/news_list">更多&gt;&gt;</a>
+            </div>
+            <ul id="latest_news">
+
+            </ul>
+        </div>
+
+
+        <!--最新开服-->
+        <div class="latestService">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>最新开服</span></span>
+                <a href="/pc/server">更多&gt;&gt;</a>
+            </div>
+            <ul id="latest_service">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="middle_right">
+        <div class="newsDetail">
+            <div id="news_id"></div>
+
+        </div>
+
+        <!--相关资讯-->
+        <div class="related">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>相关资讯</span></span>
+            </div>
+
+            <ul id="related_news">
+
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<div class="clear" style="clear: both;"></div>
+
+<script id="new_left" type="text/html">
+    <% for(var i=0;i< list.length;i++){%>
+    <li>
+        <a href="/pc/news/3203">
+            <span class="gg">公告</span>
+            <span>|</span>
+            <span><%:=list[i].title%></span>
+        </a>
+    </li>
+    <%}%>
+</script>
+<script id="new_ldown" type="text/html">
+    <%for(var i=0;i< list2.length; i++){%>
+    <li class="game_info"><a href="/pc/info/10580">
+        <div class="game_img" style="height: 60px">
+            <img src="<%=list2[i].logo%>" alt="">
+        </div>
+        <span class="game_detail">
+                        <p><%=list2[i].name%></p>
+                        <p>
+                            <span><%=list2[i].slogan%></span>
+                        </p>
+                        <p><%=list2[i].updated_at%></p>
+                    </span>
+    </a>
+        <a href="<%=list2[i].game_play_url%>" target="_blank" onclick="game_click('<%=list2[i].id%>')">
+            <input type="button" class="receive" value="进入">
+        </a>
+    </li>
+    <%}%>
+</script>
+<script id="new_con" type="text/html">
+    <div class="game_info">
+        <div class="game_img" style="height: 120px;">
+            <img src="<%=newcontent.logo%>" alt="">
+        </div>
+        <span class="game_detail">
+            <p><%=newcontent.name%></p>
+                    <p><%=newcontent.type_name%>&nbsp;|&nbsp;人气：
+                        <span><%=newcontent.popularity%></span>
+                    </p>
+                    <p>
+                        <a href="<%=newcontent.game_play_url%>" target="_blank" onclick="game_click('<%=newcontent.id%>')">进入游戏</a>
+                    </p>
+                </span>
+        <span class="qr_code">
+                    <div id="qr_code">
+<!--                        <canvas width="100" height="100"></canvas>-->
+                    </div>
+                    <p>扫一扫，直接玩</p>
+                </span>
+    </div>
+
+
+    <div class="news_content">
+        <div class="content_top"><p><%=news.title%></p>
+            <p><%=news.post_time%></p></div>
+        <div class="content_bottom">
+            <div><span style="font-size: 14px;"><%=news.desc%></span></div>
+
+        </div>
+        <p style="height: 10px;"></p>
+    </div>
+</script>
+<script id="new_down" type="text/html">
+    <%for(var i=0;i< list3.length; i++){%>
+    <li>
+        <a href="/pc/news/2644">
+            <span>•&nbsp;</span><%=list3[i].title%>
+        </a>
+    </li>
+    <%}%>
+</script>
+<script src="../../../pcStatic/js/data/colours_drawing/news_list.js"></script>
+<script src="../../../pcStatic/js/template.js"></script>
+<script>
+    console.log(getnewlist());
+    var list = [];
+    var list2 = [];
+    var list3 = [];
+    var newlist = getnewlist().data.pc_related_news;
+    var newlistdown = getnewlist().data.related_games;
+    var newcontent = getnewlist().data.game;
+    var news = getnewlist().data.news;
+
+    list[0] = newlist;
+    list[1] = newlist;
+    list2[0] = newlistdown;
+    list2[1] = newlistdown;
+    list2[2] = newlistdown;
+    list2[3] = newlistdown;
+    list3[0] = news;
+    list3[1] = news;
+    list3[2] = news;
+    list3[3] = news;
+    console.log(list);
+    var new_left = $("#new_left").html();
+    var new_left_page = template(new_left, list);
+    $("#latest_news").html(new_left_page);
+
+    var new_ldown = $("#new_ldown").html();
+    var new_ldown_page = template(new_ldown, list2);
+    $("#latest_service").html(new_ldown_page);
+
+    var new_con = $("#new_con").html();
+    var new_con_page = template(new_con, newcontent | news);
+    $("#news_id").html(new_con_page);
+
+    var new_down = $("#new_down").html();
+    var new_down_page = template(new_down, list3);
+    $("#related_news").html(new_down_page);
+
+    //生成二维码
+    $('#qr_code').qrcode({
+        render: "canvas",
+        width: 100,
+        height: 100,
+        text: newcontent.game_play_url
+    });
+
+</script>
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="/pc">关于我们</a> | <a href="/pc">商务合作</a> |
+                <a href="/pc">家长监护</a> | <a href="/pc">联系我们</a> |
+                <a href="" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="../../../pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--右侧栏二维码-->
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="../../../pcStatic/images/appDownload.png" alt="">
+</a>
+<!--返回顶部按钮-->
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="../../../pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        var scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop === 0) clearTimeout(scrolldelay);
+    }
+
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+
+    $('.yiji a').click(function () {
+        $(this).addClass('on');
+        $(this).siblings().removeClass('on');
+    });
+</script>
+</body>
+</html>

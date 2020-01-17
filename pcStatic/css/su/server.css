@@ -1,0 +1,108 @@
+#server {
+  position: relative; }
+  #server #content .openService {
+    margin: 0 0 100px 0;
+    width: 100%;
+    background-color: #ffffff; }
+    #server #content .openService .service_content {
+      margin: 0 15px; }
+      #server #content .openService .service_content .service_type {
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px; }
+        #server #content .openService .service_content .service_type span {
+          display: inline-block;
+          margin-right: 50px;
+          height: 60px;
+          width: 120px;
+          text-align: center;
+          cursor: pointer; }
+        #server #content .openService .service_content .service_type .on {
+          border-bottom: 5px solid #38b1fd;
+          color: #38b1fd; }
+      #server #content .openService .service_content .service_title {
+        margin: 30px 0 0 0;
+        height: 45px;
+        line-height: 45px;
+        font-size: 14px;
+        background-color: #f2f2f2;
+        color: #7c7c7c; }
+        #server #content .openService .service_content .service_title span {
+          display: inline-block;
+          width: 210px;
+          text-align: center; }
+        #server #content .openService .service_content .service_title span:first-child {
+          width: 80px; }
+      #server #content .openService .service_content .service_info_list {
+        margin: 0 30px; }
+        #server #content .openService .service_content .service_info_list #open_service .game_info {
+          height: 118px;
+          border-bottom: 1px dashed #eeeeee; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info a {
+            text-decoration: none;
+            color: #333333; }
+            #server #content .openService .service_content .service_info_list #open_service .game_info a .game_img {
+              margin-right: 25px;
+              width: 88px;
+              height: 88px; }
+              #server #content .openService .service_content .service_info_list #open_service .game_info a .game_img img {
+                width: 100%;
+                border: 0;
+                vertical-align: middle; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info div {
+            float: left;
+            margin: 15px 0 0 0;
+            font-size: 14px; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .time, #server #content .openService .service_content .service_info_list #open_service .game_info .server, #server #content .openService .service_content .service_info_list #open_service .game_info .gift, #server #content .openService .service_content .service_info_list #open_service .game_info .operating {
+            text-align: center;
+            height: 88px;
+            line-height: 88px; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .game_name {
+            float: left;
+            margin: 15px 0 0 0;
+            font-size: 14px; }
+            #server #content .openService .service_content .service_info_list #open_service .game_info .game_name span {
+              display: inline-block; }
+            #server #content .openService .service_content .service_info_list #open_service .game_info .game_name span:first-child {
+              margin: 15px 0 15px 0;
+              font-size: 18px;
+              width: 160px;
+              height: 25px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap; }
+            #server #content .openService .service_content .service_info_list #open_service .game_info .game_name span:last-child {
+              font-size: 14px;
+              color: #7f7f7f; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .time {
+            width: 200px;
+            color: #ff110e; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .server {
+            width: 230px; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .gift a, #server #content .openService .service_content .service_info_list #open_service .game_info .operating a {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 8px;
+            margin-top: 25px; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .gift {
+            width: 210px; }
+            #server #content .openService .service_content .service_info_list #open_service .game_info .gift a {
+              border: 1px solid #fc8605;
+              color: #fc8605; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .operating {
+            float: left;
+            margin: 15px 0 0 0;
+            font-size: 14px;
+            width: 193px; }
+            #server #content .openService .service_content .service_info_list #open_service .game_info .operating a {
+              border: 1px solid #38b1fd;
+              color: #38b1fd; }
+          #server #content .openService .service_content .service_info_list #open_service .game_info .gift, #server #content .openService .service_content .service_info_list #open_service .game_info .operating {
+            text-align: center;
+            height: 88px;
+            line-height: 88px; }
+
+/*# sourceMappingURL=server.css.map */

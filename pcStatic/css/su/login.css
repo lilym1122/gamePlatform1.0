@@ -1,0 +1,95 @@
+body {
+  background: #ffffff;
+  overflow: hidden;
+  font-size: 40px; }
+
+input, button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  outline: none; }
+
+.login_content {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  min-width: 320px;
+  max-width: 600px;
+  overflow: hidden; }
+  .login_content form dd {
+    height: 50px;
+    margin: 20px 0 0 0;
+    padding-left: 46px;
+    font-size: 14px;
+    color: #bababa;
+    border-bottom: 1px solid #f0f0f0; }
+  .login_content form .dd_reg {
+    margin-left: 0;
+    padding-left: 0; }
+  .login_content form .sub.zc {
+    margin-top: 40px;
+    background: #009aff;
+    color: #fff; }
+  .login_content form .sub {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    margin: 10px 0;
+    font-size: 18px; }
+  .login_content form .phone {
+    background: url(../../images/login_name.png) left center no-repeat;
+    background-size: 30px 34px; }
+  .login_content form .password {
+    background: url(../../images/login_pwd.png) left center no-repeat;
+    background-size: 30px 34px; }
+  .login_content form .inputt {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    color: #bababa; }
+  .login_content form .inputp {
+    height: 50px;
+    font-size: 20px;
+    color: #bababa; }
+  .login_content form span {
+    font-size: 20px;
+    color: #333333; }
+  .login_content form .read {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 0;
+    color: #bababa;
+    border-bottom: none; }
+    .login_content form .read a {
+      color: #009aff;
+      text-decoration: none;
+      outline: none; }
+    .login_content form .read #forget_btn {
+      float: right; }
+    .login_content form .read .return {
+      float: right; }
+  .login_content .err-msg {
+    color: #f00;
+    font-size: 12px;
+    text-align: left;
+    height: 20px; }
+  .login_content .logo {
+    margin-top: 20px; }
+    .login_content .logo img {
+      width: 40%;
+      border: none;
+      max-height: 100%;
+      vertical-align: middle; }
+  .login_content .login_content form {
+    padding: 0 15px;
+    overflow: hidden;
+    margin-top: 15px; }
+
+.tc {
+  text-align: center; }
+
+/*# sourceMappingURL=login.css.map */

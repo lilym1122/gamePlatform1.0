@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <link href="../../pcStatic/css/swiper/swiper.min.css" rel="stylesheet">
+    <link href="../../pcStatic/css/su/topic.css" rel="stylesheet">
+    <link href="../../pcStatic/css/hui-reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../pcStatic/css/style.css?v=1.23">
+
+    <title>游戏平台-首页</title>
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="../../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="/pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="/pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="../../pc/game_hub/game_hub.html"><img src="../../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/index.html" class="on">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/game_hub/game_hub.html" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/gift/index.html" class="">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/news_list/index.html" class="">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="../../pc/user/my_center.html" class="">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href="/game/10902" target="_blank">
+                <img alt="" src="http://dl.4177.com//190425/817abb91301f27d68d45354a8b6ab44b13cfecbc.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="/game/10868?base_url=aHR0cDovL3d3dy40MTc3LmNvbQ==&amp;uid=NjQxMjAxMzA=" target="_blank">
+                <img alt="" src="http://dl.4177.com//190311/df1ec200b8d243139df2353dfad68c74d7042155.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="/game/10708" target="_blank">
+                <img alt="" src="http://dl.4177.com//190426/28957a77e5ba9cf654cc7efecf554d4722dfc082.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="game/10837?base_url=aHR0cDovL3d3dy40MTc3LmNvbQ==&amp;uid=NjQxMjAxMzA=" target="_blank">
+                <img alt="" src="http://dl.4177.com//190415/5c35511113252b0ce98002ca9a0d24406766ba66.png"></a>
+        </div>
+        <div class="swiper-slide">
+            <a href="/game/10861" target="_blank">
+                <img alt="" src="http://dl.4177.com//190307/00b927e5fa29a3be2a599a07076c03b2cc88cd35.jpg"></a>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination" style="bottom: 120px"></div>
+    <div id="topic"></div>
+</div>
+<div id="content">
+    <div id="page_name" style="display: none;">topic</div>
+    <div id="topic_id" style="display: none;"></div>
+    <!--游戏专题-->
+    <div class="topic">
+        <div class="class_title">
+            <i></i>
+            <span class="font_color"><span>游戏专题</span></span>
+        </div>
+
+        <ul id="topic_list">
+            <script id="topic_list_T" type="text/html">
+                <%data.forEach(function (news) {%>
+                <li><a href="/pc/topic?topic_id=98#topic_game"> <img
+                        alt="" class="topic_img"
+                        src="<%:=news.img%>">
+                    <div class="topic_content"><p><%:=news.extra%></p>
+                        <p><%:=news.title%></p></div>
+                </a></li>
+                <%})%>
+            </script>
+
+        </ul>
+    </div>
+
+    <!--游戏专题-游戏列表-->
+    <div class="topic_game" id="topic_game">
+        <script id="topic_game_T" type="text/html">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>游戏列表</span></span>
+                <span id="totalGames">共<%:=topic_game.length%>个游戏</span>
+            </div>
+            <ul id="topic_game_list">
+
+                <%data.forEach(function (news) {%>
+                <li title="凡人飞仙传"><a href="/pc/info/10629" title=""> <img
+                        alt="" class="game_icon"
+                        src="<%:=news.image%>">
+                    <p class="game_name"><%:=news.name%></p>
+                    <div class="game_cover">
+                        <div class="game_qr_code" id="topic_game_10629">
+                            <canvas height="120" width="120"></canvas>
+                        </div>
+                    </div>
+                </a> <a href="http://www.4177.com/game/10629" onclick="game_click(10629)" target="_blank"> <input
+                        class="game_start" type="button" value="开始游戏"> </a>
+                </li>
+                <%})%>
+            </ul>
+            </div>
+        </script>
+    </div>
+</div>
+
+    <script src="../../pcStatic/js/swiper/swiper.min.js"></script>
+    <script src="../../pcStatic/js/jquery.min.js"></script>
+    <script src="../../pcStatic/js/template.js"></script>
+    <script src="../../pcStatic/js/data/index/topic.js"></script>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            // slide之间距离
+            spaceBetween: 30,
+
+            effect: 'fade',
+
+            //布局居中
+            centeredSlides: true,
+
+            //自动播放
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            //小点点
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            //左右按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        //数据模块
+        let topic_list, topic_game;
+
+        //渲染模板
+        let topic_list_T, topic_game_T;
+
+        init();
+
+        function init() {
+            //游戏专题
+            topic_list = getJsonDate('topic_list', 9).data;
+            topic_list_T = template(document.getElementById('topic_list_T').innerHTML);
+            let topic_list_HTML = topic_list_T({data: topic_list});
+            document.getElementById('topic_list').innerHTML = topic_list_HTML;
+
+            //游戏列表
+            topic_game = getJsonDate('topic_game', 18).data;
+            topic_game_T = template(document.getElementById('topic_game_T').innerHTML);
+            let topic_game_HTML = topic_game_T({data: topic_game});
+            document.getElementById('topic_game').innerHTML = topic_game_HTML;
+        }
+
+    </script>
+
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="/pc">关于我们</a> | <a href="/pc">商务合作</a> |
+                <a href="/pc">家长监护</a> | <a href="/pc">联系我们</a> |
+                <a href="" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="../../pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--右侧栏二维码-->
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="../../pcStatic/images/appDownload.png" alt="">
+</a>
+<!--返回顶部按钮-->
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="../../pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        var scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop === 0) clearTimeout(scrolldelay);
+    }
+
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+
+    $('.yiji a').click(function () {
+        $(this).addClass('on');
+        $(this).siblings().removeClass('on');
+    });
+</script>
+</body>
+
+</html>

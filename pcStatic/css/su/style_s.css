@@ -1,0 +1,34 @@
+body {
+  background-color: #f4f5f7;
+  margin: 0;
+  padding: 0; }
+
+#bg_img {
+  position: absolute; }
+  #bg_img img {
+    width: 100%; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+#content {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative; }
+  #content a {
+    text-decoration: none; }
+  #content .position {
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px; }
+    #content .position a {
+      color: #333333; }
+
+input, button {
+  overflow: visible;
+  vertical-align: middle;
+  outline: none;
+  border: 0; }
+
+/*# sourceMappingURL=style_s.css.map */

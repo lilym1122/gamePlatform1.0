@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../pcStatic/css/su/style_s.css">
+    <link rel="stylesheet" href="../../pcStatic/css/su/gift.css">
+    <link rel="stylesheet" href="../../pcStatic/css/hui-reset.css">
+    <link rel="stylesheet" href="../../pcStatic/css/style.css?v=1.23">
+    <title>礼包</title>
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="../../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="/pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="/pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="../../pc/game_hub/game_hub.html"><img src="../../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/index.html" class="">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/game_hub/game_hub.html" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/gift/index.html" class="on">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/news_list/index.html" class="">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="../../pc/user/my_center.html" class="">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="gift">
+    <div id="bg_img">
+        <img src="../../pcStatic/images/beijing.jpg" alt="">
+    </div>
+    <div id="content">
+        <div style="display: none;" id="page_name">gift_package</div>
+        <div class="position">
+            <span>当前位置：</span><a href="/pc">首页</a>&gt;礼包
+        </div>
+        <div id="wp"></div>
+
+        <div class="clear" style="clear: both;"></div>
+    </div>
+</div>
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="/pc">关于我们</a> | <a href="/pc">商务合作</a> |
+                <a href="/pc">家长监护</a> | <a href="/pc">联系我们</a> |
+                <a href="" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="../../pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--右侧栏二维码-->
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="../../pcStatic/images/appDownload.png" alt="">
+</a>
+<!--返回顶部按钮-->
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="../../pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        var scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop === 0) clearTimeout(scrolldelay);
+    }
+
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+
+    $('.yiji a').click(function () {
+        $(this).addClass('on');
+        $(this).siblings().removeClass('on');
+    });
+</script>
+</body>
+<script id="tpl" type="text/html">
+    <div class="middle_left">
+        <!--热门礼包-->
+        <div class="popularGiftPackage">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>热门礼包</span></span>
+            </div>
+            <ul id="popular">
+                <%list.forEach(function (news) {%>
+                <li class="game_info" title="<%:=news.game_name%> - <%:=news.name%>">
+                    <a href="<%:=news.game_detail_url%>">
+                        <div class="game_img">
+                            <img src="<%:=news.logo%>" alt="">
+                        </div>
+                        <span class="game_package"> <p><%:=news.game_name%> - <%:=news.name%></p> <p>剩余：<span><%:=news.valid_count%>份</span></p> <p>有限期：<%:=news.effect_end_time%></p> </span>
+                    </a>
+                    <a href="javascript:;" onclick="receive(1899,10898)"> <input type="button" class="receive" value="领取"> </a>
+                </li>
+                <%})%>
+            </ul>
+        </div>
+    </div>
+    <div class="middle_right">
+        <!--礼包列表-->
+        <div class="giftPackageList">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>礼包列表</span></span>
+            </div>
+            <div class="packageList">
+
+                <div class="searchGiftPackage">
+                    <div>
+                        <input type="text" placeholder="搜索游戏礼包" id="gift_key">
+                        <input type="button" value="" onclick="gift_search()">
+                    </div>
+                </div>
+                <ul id="packageList">
+                    <%list1.forEach(function (news) {%>
+                    <li class="gift_info">
+                        <a href="<%:=news.game_detail_url%>">
+                            <div class="gift_img">
+                                <img src="<%:=news.logo%>" alt="">
+                            </div>
+                            <span class="gift_detail">
+                                    <p><%:=news.game_name%> - <%:=news.name%></p> <p>剩余：</p>
+                                    <div class="progress">
+                                        <span class="sr_only"><%:=news.valid_ratio%>%</span>
+                                        <div class="progress_bar" style="width:<%:=news.valid_ratio%>%"></div>
+                                    </div>
+                                    <p></p>
+                                    <p class="gift_list_content"><%:=news.content%></p>
+                                    <p>有限期：<%:=news.effect_end_time%></p>
+                                </span>
+                        </a>
+                        <a href="javascript:;" class="receive" onclick="receive(1899,10898)">领取礼包</a>
+                    </li>
+                    <%})%>
+                </ul>
+                <div class="load_more">
+                    <a href="javascript:;" onclick="upDate()">点击加载更多&gt;&gt;</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</script>
+<script src="../../pcStatic/js/template.js"></script>
+<script src="../../pcStatic/js/data/giftList/giftList.js"></script>
+<script>
+    
+    var leftDate = getJsonDate().data.listLeft;
+    var rightDate = getJsonDate().data.listRight.gifts;
+    
+    var tpl = template(document.getElementById('tpl').innerHTML);
+
+    //初始化渲染
+    function tplFn(){
+        let html = tpl({
+            list: leftDate,
+            list1: rightDate
+        });
+        document.getElementById('wp').innerHTML = html;
+    }
+    tplFn();
+
+    //加载更多
+    function upDate() {
+        //从服务层获取新的数据
+        let newDate = getJsonDate().data.listRight.gifts;
+
+        rightDate = rightDate.concat(newDate);//把获取的新数据拼接上去
+
+        tplFn();
+    }
+</script>
+</html>

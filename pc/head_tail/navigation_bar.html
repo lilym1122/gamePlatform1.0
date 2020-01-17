@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="../../pcStatic/images/favicon.ico">
+    <title>游戏头部</title>
+    <meta name="keywords" content="游戏中心,游戏,传奇世界,龙女传奇,雄霸传奇,口袋妖怪,手机页游助手">
+    <meta name="description"
+          content="游戏平台，提供传奇世界H5、决战沙城H5、烈火星辰H5、妖怪宝可萌H5等最热免费H5游戏在线玩，找不用下载手机网页游戏，独特手机页游助手微端4177游戏，让您解放微信窗口，畅享H5游戏生活。">
+    <link rel="stylesheet" type="text/css" href="../../pcStatic/css/bootstrap3.0.min.css">
+    <link rel="stylesheet" href="../../pcStatic/css/style.css?v=1.23">
+    <link rel="stylesheet" href="../../pcStatic/css/hui-reset.css">
+    <link rel="stylesheet" href="../../pcStatic/css/sign_in.css">
+    <script type="text/javascript" src="../../pcStatic/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../pcStatic/js/jquery.qrcode.min.js"></script>
+    <script src="../../pcStatic/js/clipboard.min.js"></script>
+
+</head>
+<body style="zoom: 1;" id="page_top">
+
+
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="../../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="/pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="/pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="/pc/game_hub/game_hub.html"><img src="../../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="/pc/index.html" class="on">首页</a>
+                    </div>
+                </div>
+                <div class="yiji" id="game_hub" name="game_hub">
+                    <a href="/pc/game_hub/game_hub.html" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="/pc/pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="/pc/server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="/pc/gift/index.html" class="w ">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="/pc/news_list/index.html" class="w ">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="/pc/user/my_center.html" class="">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $('.yiji a').click(function () {
+        $(this).addClass('on');
+        $(this).siblings().removeClass('on');
+    });
+</script>
+</body>
+</html>

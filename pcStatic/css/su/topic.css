@@ -1,0 +1,146 @@
+html, body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f5f7; }
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000; }
+
+.swiper-container {
+  width: 100%;
+  height: 550px; }
+  .swiper-container a {
+    width: 100%;
+    height: 100%; }
+  .swiper-container img {
+    width: 100%;
+    height: 100%; }
+
+.swiper-pagination-bullet {
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff;
+  opacity: 1; }
+
+.swiper-pagination-bullet-active {
+  background: url("../../images/icon_blue.png"); }
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+#content {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative; }
+  #content a {
+    text-decoration: none; }
+  #content .topic {
+    margin-bottom: 10px;
+    padding: 0 15px;
+    height: 1000px;
+    background-color: #ffffff;
+    position: relative;
+    margin-top: -100px;
+    z-index: 99;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px; }
+    #content .topic .font_color {
+      color: #38affd; }
+    #content .topic .topic_img {
+      width: 380px;
+      height: 180px; }
+    #content .topic .topic_content {
+      height: 114px;
+      padding: 0 10px; }
+      #content .topic .topic_content p:first-child {
+        font-size: 16px;
+        padding: 10px 0;
+        color: #333333; }
+      #content .topic .topic_content p:last-child {
+        font-size: 12px;
+        color: #7d7d7d;
+        line-height: 20px;
+        height: 60px;
+        width: 360px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden; }
+    #content .topic ul li {
+      width: 380px;
+      height: 294px;
+      float: left;
+      margin: 16px 15px 0 0;
+      background-color: #f3f6f6; }
+    #content .topic ul li:nth-child(3), #content .topic ul li:nth-child(6), #content .topic ul li:nth-child(9) {
+      margin-right: 0; }
+  #content .topic_game {
+    margin-bottom: 100px;
+    padding: 0 15px;
+    height: 980px;
+    background-color: #ffffff; }
+    #content .topic_game .font_color {
+      color: #333333; }
+    #content .topic_game #totalGames {
+      float: right;
+      color: #959595; }
+    #content .topic_game ul li {
+      float: left;
+      margin: 34px 16px 0 29px;
+      text-align: center;
+      width: 150px; }
+      #content .topic_game ul li .game_icon {
+        width: 150px;
+        height: 150px;
+        border-radius: 24px; }
+      #content .topic_game ul li .game_name {
+        margin: 18px 0 15px 0;
+        font-size: 18px;
+        color: #333333;
+        height: 25px;
+        overflow: hidden; }
+      #content .topic_game ul li .game_start {
+        border-radius: 20px;
+        border: 1px solid #38b0fe;
+        width: 110px;
+        height: 38px;
+        font-size: 18px;
+        background-color: #ffffff;
+        color: #38b0fe; }
+      #content .topic_game ul li .game_cover {
+        display: none; }
+  #content .class_title {
+    height: 57px;
+    line-height: 57px;
+    border-bottom: 1px solid #dddddd; }
+    #content .class_title i {
+      display: block;
+      width: 5px;
+      height: 24px;
+      background: #38affd;
+      float: left;
+      margin-top: 18px; }
+    #content .class_title .font_color {
+      font-size: 24px; }
+      #content .class_title .font_color span {
+        margin-left: 8px; }
+
+/*# sourceMappingURL=topic.css.map */

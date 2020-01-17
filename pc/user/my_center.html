@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="../../pcStatic/images/favicon.ico">
+    <title>个人中心</title>
+    <meta name="keywords" content="游戏中心,游戏,传奇世界,龙女传奇,雄霸传奇,口袋妖怪,手机页游助手">
+    <meta name="description"
+          content="游戏平台，提供传奇世界H5、决战沙城H5、烈火星辰H5、妖怪宝可萌H5等最热免费H5游戏在线玩，找不用下载手机网页游戏，独特手机页游助手微端4177游戏，让您解放微信窗口，畅享H5游戏生活。">
+    <link rel="stylesheet" type="text/css" href="../../pcStatic/css/bootstrap3.0.min.css">
+    <link rel="stylesheet" href="../../pcStatic/css/style.css">
+    <link rel="stylesheet" href="../../pcStatic/css/hui-reset.css">
+    <link rel="stylesheet" href="../../pcStatic/css/sign_in.css">
+    <link rel="stylesheet" href="../../pcStatic/css/xm_css/xm_css.css">
+    <script type="text/javascript" src="../../pcStatic/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../pcStatic/js/jquery.qrcode.min.js"></script>
+    <script src="../../pcStatic/js/clipboard.min.js"></script>
+
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="../../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="/pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="/pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="../../pc/game_hub/game_hub.html"><img src="../../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/index.html" class="">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/game_hub/game_hub.html" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/gift/index.html" class="">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/news_list/index.html" class="">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="../../pc/user/my_center.html" class="on">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--背景图-->
+<div id="bg_img">
+    <img src="../../pcStatic/images/beijing.jpg" alt="">
+</div>
+<!--中间主题-->
+<div id="content">
+    <div id="type" style="display: none"></div>
+    <div id="page_name" style="display:none;">personal_center</div>
+    <div class="position">
+        <span>当前位置：</span><a href="/pc">首页</a>&gt;个人中心
+    </div>
+
+    <div class="personal_one" id="head_logo">
+<!--       头像-->
+    </div>
+
+    <!--我玩过的-->
+    <div class="iPlayed" >
+        <div class="class_title">
+            <i></i>
+            <span class="font_color"><span>我玩过的</span></span>
+        </div>
+        <div class="my_game_main swiper-free-mode swiper-free-mode">
+            <ul id="iPlayed" class="swiper-wrapper ul_swiper">
+<!--                我玩过的-->
+            </ul>
+        </div>
+    </div>
+    <!--选择；列表-->
+    <div class="personal_two">
+        <div class="personal_left">
+            <ul>
+                <li class="on"><img src="../../pcStatic/images/grzl.png" alt="">个人资料</li>
+                <li><img src="../../pcStatic/images/zhaq.png" alt="">账号安全</li>
+                <li><img src="../../pcStatic/images/czjl.png" alt="">充值记录</li>
+                <li><img src="../../pcStatic/images/wdlb.png" alt="">我的礼包</li>
+                <li><img src="../../pcStatic/images/wdxx.png" alt="">我的消息</li>
+                <li><img src="../../pcStatic/images/kfzx2.png" alt="">客服中心</li>
+                <li><img src="../../pcStatic/images/vip.png" alt="" style="width: 24px;">vip特权</li>
+                <li><img src="../../pcStatic/images/mission.png" alt="" class="iml">任务活动
+                </li>
+                <div></div>
+            </ul>
+        </div>
+
+        <div class="personal_right">
+            <!--个人资料（显示保存数据）-->
+            <div class="personalInfo">
+                <form>
+                    <div class="nickname">
+                        <span>昵称：</span>
+                        <input type="text" name="nickname" id="nick_name" value="">
+                    </div>
+                    <div class="sex">
+                        <span>性别：</span>
+                        <label><input type="radio" class="nan" name="sex" value="1">男</label>
+                        <label><input type="radio" class="nv" name="sex" value="2">女</label>
+                    </div>
+                    <div class="weixin">
+                        <span>微信：</span>
+                        <input type="text" name="weixin" id="weixin" value="">
+                    </div>
+                    <div class="qq">
+                        <span>QQ：</span>
+                        <input type="text" name="qq" id="qq" value="">
+                    </div>
+                    <div class="personal_btn">
+                        <input type="button" name="save" class="save" id="save" value="保存">
+                        <input type="button" name="cancel" class="cancel" id="cancel" value="取消">
+                    </div>
+                </form>
+            </div>
+
+            <!--账号安全（认证）-->
+            <div class="accountSecurity" style="display: none;">
+                <div class="verified">
+                    <p>实名认证</p>
+                    <span class="name">姓名：</span>
+                    <input type="text" name="name" id="realname" value=""><br>
+                    <span>身份证号：</span>
+                    <input type="text" name="id_card" id="id_card" value="">
+                    <input type="button" class="btn" id="save_auth" value="认证">
+                </div>
+                <div class="bindingPhone">
+                    <p>绑定手机</p>
+                    <span>手机号：</span>
+                    <input type="text" name="phone_number" id="phone_number" value=""><br>
+                    <span>验证码：</span>
+                    <input type="text" name="code" id="code" value="" class="yzm">
+                    <dd id="send_code">发送验证码</dd>
+                    <input type="button" class="btn" value="绑定">
+                </div>
+            </div>
+
+            <!--充值记录-->
+            <div class="rechargeRecord" style="display: none;">
+                <!--                <div class="wage">-->
+                <!--                    <span class="is_wage"></span>-->
+                <!--                    <span class="wage_bth">-->
+                <!--                        <a class="wage_receive_btn" style="display:none;" href="javascript:void(0);"-->
+                <!--                           id="get_wages">领取</a>-->
+                <!--                        <a class="wage_receive_btn" href="javascript:void(0);" id="look_wages">工资领取记录</a>-->
+                <!--                    </span>-->
+                <!--                </div>-->
+                <div class="record_top">
+                    <span class="game">充值游戏</span>
+                    <span class="areaClothing">游戏区服</span>
+                    <span class="amount">充值金额</span>
+                    <span class="time">充值时间</span>
+                </div>
+                <ul id="record_list">
+                    <script id="tp_record_list" type="text/html">
+                        <%for(var i=0;i< rcd_list.length;i++){%>
+                        <li>
+                            <span class="name"><%=rcd_list[i].game_name%></span>
+                            <span class="packageCode"><%=rcd_list[i].server_name%></span>
+                            <span class="time"><%=rcd_list[i].gold%></span>
+                            <span class="operating"></span>
+                        </li>
+                        <%}%>
+                    </script>
+                </ul>
+                <div class="load_more">
+                    <a href=""></a>
+                </div>
+
+            </div>
+
+            <!--我的礼包-->
+            <div class="myGiftPack" style="display: none;">
+                <div class="giftPack_top">
+                    <span class="name">礼包名称</span>
+                    <span class="packageCode">礼包码</span>
+                    <span class="time">有限日期</span>
+                    <span class="operating">操作</span>
+                </div>
+                <ul id="my_gifts">
+<!--                   我的礼包-->
+                </ul>
+                <div class="load_more" style="clear: both">
+                    <a href=""></a>
+                </div>
+            </div>
+
+            <!--我的消息(未交互，暂时不能删除消息)-->
+            <div class="myMessage" style="display: none;">
+                <div class="message_top">
+                    <label><input type="checkbox" name="all" id="check_all">全选</label>
+                    <a href="" id="batch_deletion">批量删除</a>
+                </div>
+                <ul id="my_messages">
+                    <script id="tp_my_messages" type="text/html">
+                        <%for(var i=0;i< newlist.length;i++ ){%>
+                        <li>
+                            <input type="checkbox" name="" data-uid="<%=newlist[i].id%>" value="<%=newlist[i].id%>">
+                            <span class="msg_content"  data-uid="<%=newlist[i].id%>"  onclick=msg_detail(<%=newlist[i].id%>)>
+                                <p>
+                                    <span class="msg_title"><%=newlist[i].title%></span>
+                                    <span class="msg_time"><%=newlist[i].time%></span>
+                                </p>
+                                <p></p>
+                                <dd id="con_<%=newlist[i].id%>">
+                                    <%=newlist[i].content%>
+                                </dd>
+                                <p></p>
+                            </span>
+                        </li>
+                        <%}%>
+                    </script>
+
+                </ul>
+                <div class="load_more">
+                    <a href=""></a>
+                </div>
+            </div>
+            <div id="dialogs2" style="display: none">
+                <div class="nbaMask"></div>
+                <div class="nbaDialog">
+                    <div class="nbaDialogHd">
+                        <strong class="nbaDialogTitle"></strong>
+                    </div>
+
+                    <div class="nbaDialogHd" id="dialog_msg3">"
+
+                    </div>
+                    <div class="nbaDialogFt">
+                        <a href="javascript:;" class="nbaDialogBtn nbaDialogBtnPrimary" id="dialog_ok2">确定</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--客服中心-->
+            <div class="customerService" style="display: none;">
+                <div class="service_top">
+                    <img src="../../pcStatic/images/lxkf.png" alt="">
+                    <div id="contact">
+                        <script id="tp_contact" type="text/html">
+                            <p>联系客服</p>
+                            <p>客服微信（<%=cuscenter.wechat_time%>）：<%=cuscenter.wechat%></p>
+                            <p>客服电话（<%=cuscenter.phone_time%>）：<%=cuscenter.phone%></p>
+                            <p>微信公众号：<%=cuscenter.official%> 投诉邮箱：<%=cuscenter.email%></p>
+                        </script>
+                    </div>
+                </div>
+
+                <div class="service_bottom">
+                    <!-- <a href="" class="stolenComplaint">
+                         <img src="/pcStatic/images/bdss2.png" alt="">
+                         <div>
+                             <p>被盗申诉</p>
+                             <p>解决玩家物品，账号被盗问题</p>
+                         </div>
+                     </a>-->
+                    <a href="https://passport.4177.com/login?referrer=aHR0cDovL3d3dy40MTc3LmNvbS91c2Vy"
+                       class="retrievePassword">
+                        <img src="../../pcStatic/images/zhmm2.png" alt="">
+                        <div>
+                            <p>找回密码</p>
+                            <p>玩家忘记密码可通过绑定的手机号找回</p>
+                        </div>
+                    </a>
+                    <!-- <a href="" class="feedback">
+                        <img src="/pcStatic/images/wtfk2.png" alt="">
+                        <div>
+                            <p>问题反馈</p>
+                            <p>玩家有什么问题或者建议可以通过邮箱给我们反馈</p>
+                        </div>
+                    </a>-->
+                </div>
+            </div>
+
+            <!--vip特权-->
+            <div class="vipPrivilege" style="display: none;">
+                <div class="vip_top">
+                    <img src="../../pcStatic/images/vip_privileges1.png" alt="">
+                </div>
+
+                <div class="vip_bottom">
+                    <p>1元=10成长值，成长值只通过充值产出</p>
+                    <p>对应VIP等级，永久享受对应VIP福利</p>
+                    <p>(返还金额=充值金额*返还比),(工资=上月总充值*工资率)</p>
+                    <p>每月1日结算上月工资，领取时间只保留28天，过期失效</p>
+                    <p>返还金额与工资均会返还至柒钻账户，返利金额均不计入成长值</p>
+                    <p>VIP福利仅限4177平台用户参与,最终解释权归4177平台所有</p>
+                    <p>(当玩家单笔充值达到下一个VIP等级时，可直接享受下一个VIP等级的返利比例)</p>
+                </div>
+            </div>
+            <!--任务活动（按钮状态没弄）-->
+            <div class="task" style="display: none;">
+                <ul id="task">
+                    <script id="tp_task" type="text/html">
+                        <%for(var i=0;i< task.length;i++){%>
+                        <li>
+                            <p>
+                                <span class="task_title"><%=task[i].name%></span>
+                                <span class="task_reward">奖励
+                                <img src="../../pcStatic/images/coin.png" alt=""><%=task[i].gold%></span>
+                            </p>
+
+                            <a href="javascript:;" class="btn_blue" style="display: none;" id="a1">领取</a>
+                            <a href="javascript:;" class="btn_blue" style="display: none;" id="a2">已领取</a>
+                            <a href="javascript:;" class="btn_white" style="display: none;" id="a3">待完成</a>
+                            <a href="javascript:;" class="btn_white" style="display: none;" id="a4"><%= task[i].invite_info %></a>
+                            <a href="<%=task[i].invite_url%>" class="btn_white" style="display: none;" id="a6">充值</a>
+                            <a href="<%=task[i].app_download_url%>" class="btn_white" style="display: none;" id="a7">下载</a>
+                            <a href="javascript:;" class="btn_white" style="display: none;" id="a8">设置</a>
+
+                        </li>
+                        <%}%>
+                    </script>
+                </ul>
+
+                <div id="mission_mask" class="mission_mask_back" style="display: none;"></div>
+                <div class="mission-box" id="mission_suc" style="display:none;">
+                    <h4 style="">邀请好友</h4>
+                    <div class="mission_line"></div>
+                    <h5 id="missionmsg">将平台分享到微信或QQ好友,朋友圈,QQ空间,微博,好友通过您的分享链接登录平台,即邀请成功</h5>
+                    <dl id="mission_invite_url"></dl>
+                    <dd id="mission_box_hide" class="btn">邀请</dd>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<!--我的礼包-->
+<script id="tp_my_gifts" type="text/html">
+    <%for(var i=0;i< list2.length;i++){%>
+    <li>
+        <span class="name"><%=list2[i].game_name%>-<%=list2[i].gift_name%></span>
+        <span class="packageCode" id="card_num_<%=list2[i].id%>"><%=list2[i].card_num%></span>
+        <span class="time"><%=list2[i].gift_end_time%></span>
+        <span class="operating">
+            <a href="" data-clipboard-action="copy" data-clipboard-target="#card_num_<%=list2[i].id%>"
+          id="copy_card_<%=list2[i].id%>" onclick="copy_card(<%=list2[i].id%>)">复制礼包码</a>
+        </span>
+    </li>
+    <%}%>
+</script>
+<!--我玩过的-->
+<script id="tp_iplayed" type="text/html">
+    <%for(var i=0;i< list.length;i++){%>
+    <li class="swiper-slide swiper-slide-visible swiper-slide-active" style="height: 180px;">
+        <a href="<%=list[i].game_play_url%>" onclick="game_click('<%=list[i].id%>')">
+            <img src="<%=list[i].logo%>" alt="">
+            <p><%=list[i].name%></p>
+        </a>
+    </li>
+    <%}%>
+</script>
+<!--头像-->
+<script id="tp_head_logo" type="text/html">
+    <!--头像-->
+    <div class="avatar">
+        <img src="<%=hlogo.avatar%>" alt="">
+    </div>
+
+    <div class="personal_info">
+        <p class="userName" id="nickname"><%=hlogo.nickname%></p>
+        <p class="ID" id="ID">ID: <%=hlogo.uid%></p>
+        <p>
+            <img src="../../pcStatic/images/v1.png" alt="" class="vip_grade">
+            <!--                    <span class="vips">V</span>-->
+            <!--                    <span><%=hlogo.vip_level%></span>-->
+        </p>
+        <div class="progress" id="vip_progress">
+            <span class="sr_only"><%=hlogo.next_vip_salary%>/<%=hlogo.next_vip_level_growth%></span>
+            <div class="progress_bar" style="width:0%"></div>
+        </div>
+        <div id="vip_tip">再充<%=(hlogo.next_vip_level_growth-hlogo.vip_growth)/10%>元升到vip<%=hlogo.vip_level+1%>
+        </div>
+        <p></p>
+    </div>
+
+    <div class="clickToTopUp">
+        <div class="num">
+            <img src="../../pcStatic/images/qz.png" alt="">
+            <span id="diamond"><%=hlogo.diamond%></span>
+        </div>
+        <a href="../../pc/pay/recharge.html">点击充值</a>
+    </div>
+
+    <div class="clickToSignIn">
+        <div class="num">
+            <img src="../../pcStatic/images/jb.png" alt="">
+            <span id="gold"><%=hlogo.gold%></span>
+        </div>
+        <a href="" id="checkin_show">点击签到</a>
+    </div>
+</script>
+<!--弹框提示-->
+<div class="check-box" id="checkin_suc" style="display: block;">
+    <h4 style="">今日已签到</h4>
+    <h3 style="">+123金币</h3>
+    <h5>每日签到金币<span>随机</span>赠送，第三第七日<span>双倍</span>赠送</h5>
+    <div class="check_ban">
+        <ul class="check_list">
+            <li id="c_1" amount="1" class="active">
+                <span>第1天</span>
+                <i id="ic_1" ></i>
+            </li>
+            <li id="c_2" amount="1" >
+                <span>第2天</span>
+                <i id="ic_2" style="display: none;"></i>
+            </li>
+            <li id="c_3" amount="3" >
+                <span>第3天</span>
+                <i id="ic_3" style="display: none;"></i>
+            </li>
+            <li id="c_4" amount="4" >
+                <span>第4天</span>
+                <i id="ic_4" style="display: none;"></i>
+            </li>
+
+        </ul>
+        <ul class="check_list2">
+            <li id="c_5" amount="5" >
+                <span>第5天</span>
+                <i id="ic_5" style="display: none;"></i>
+            </li>
+            <li id="c_6" amount="6" >
+                <span>第6天</span>
+                <i id="ic_6" style="display: none;"></i>
+            </li>
+            <li id="c_7" amount="7" >
+                <span>第7天</span>
+                <i id="ic_7" style="display: none;"></i>
+            </li>
+        </ul>
+    </div>
+    <dd id="check_box_hide">确定</dd>
+
+
+</div>
+
+<script src="../../pcStatic/js/data/colours_drawing/my_center.js"></script>
+<script src="../../pcStatic/js/data/colours_drawing/game_hub.js"></script>
+<script src="../../pcStatic/js/data/colours_drawing/mygifts.js"></script>
+<script src="../../pcStatic/js/data/colours_drawing/mynews.js"></script>
+<script src="../../pcStatic/js/data/colours_drawing/activecont.js"></script>
+<script src="../../pcStatic/js/data/colours_drawing/signin.js"></script>
+<script src="../../pcStatic/js/template.js"></script>
+<script>
+    //数据栏
+    console.log(myCenter());
+    //个人资料info
+    var list = [];
+    var hlogo = myCenter().data;
+    var tp_head_logo = $("#tp_head_logo").html();
+    var tp_head_page = template(tp_head_logo, hlogo);
+    $("#head_logo").html(tp_head_page);
+
+    //我玩过的
+    var iplay = game_hub().data.game_history;
+    list[0] = iplay;
+    list[1] = iplay;
+    var tp_iplayed = $("#tp_iplayed").html();
+    var tp_iplay_page = template(tp_iplayed, list);
+    $("#iPlayed").html(tp_iplay_page);
+    //我的礼包
+    var mygift = mygift().data.gifts;
+    var list2 = [];
+    list2[0] = mygift;
+    list2[1] = mygift;
+    list2[2] = mygift;
+    list2[3] = mygift;
+    var tp_my_gifts = $("#tp_my_gifts").html();
+    var tp_mygift_page = template(tp_my_gifts, list2);
+    $("#my_gifts").html(tp_mygift_page);
+
+
+
+    //我的消息
+    var mynews = mynews().data.notices;
+    var newlist = [];
+    newlist[0] = mynews;
+    newlist[1] = mynews;
+    var tp_my_messages = $("#tp_my_messages").html();
+    var tp_messages_page = template(tp_my_messages, newlist);
+    $("#my_messages").html(tp_messages_page);
+    //    客服中心
+    var cuscenter = myCenter().data.custom_service;
+    var tp_contact = $("#tp_contact").html();
+    var tp_conten_page = template(tp_contact, cuscenter);
+    $("#contact").html(tp_conten_page);
+    //    任务活动
+    var task = [];
+    var actitasks = mytask().data.tasks;
+    task[0] = actitasks;
+    var tp_task = $("#tp_task").html();
+    var tp_task_page = template(tp_task, task);
+    $("#task").html(tp_task_page);
+    console.log(task);
+    //充值记录(需要后台给一条充值的记录才可显示)
+    var rcd_list=[];
+    rcd_list[0]=iplay,actitasks;
+    var tp_record_list = $("#tp_record_list").html();
+    var tp_recode_page = template(tp_record_list, rcd_list);
+    $("#record_list").html(tp_recode_page);
+
+    //弹出框事件栏
+    /*点击签到显示框*/
+    $("#checkin_show").click(function () {
+        // if (everysign().code = "222") {
+        //     var reveive_gold = '+' + everysign().data.gold + '金币';
+        //     $("#checkin_suc h4").html("今日已签到");
+        //     $("#checkin_suc h3").html(reveive_gold);
+        //     $("#checkin_suc h3").css('visibility', '');
+        //     $("#checkin_suc h4").css('visibility', '');
+        // } else if (everysign().code = "200") {
+        var reveive_gold = '+' + data.gold + '金币';
+        $("#checkin_suc h4").html("签到成功");
+        $("#checkin_suc h3").html(reveive_gold);
+        $("#checkin_suc h3").css('visibility', '');
+        $("#checkin_suc h4").css('visibility', '');
+        $('#check_ban li').addClass("active");
+        $('#check_ban li').show();
+        // }
+    });
+
+    /* 点击关闭签到弹出层*/
+    $("#check_box_hide").click(function () {
+        $("#check_mask").hide();
+        $("#checkin_suc").hide();
+        // 关闭过后还要刷新金币和页面
+    });
+
+    $("#check_mask").click(function () {
+        $("#check_mask").hide();
+        $("#checkin_suc").hide();
+        // 关闭过后要刷新金币和页面
+    });
+
+    $("#check_mask").show();
+    $("#checkin_suc").show();
+
+    /*我的消息-批量删除*/
+    $('#check_all').click(function () {
+        if ($(this).is(":checked")) {
+            $('#my_messages li input[type=checkbox]').prop('checked', true);
+        } else {
+            $('#my_messages li input[type=checkbox]').prop('checked', false);
+        }
+    });
+    $('#batch_deletion').click(function () {
+        var msg_id = '';
+        var user_id = '';
+        $('#my_messages li input[type=checkbox]').each(function () {
+            console.log($(this).is(':checked'));
+            if ($(this).is(':checked')) {
+                msg_id += $(this).val() + ',';
+            }
+        });
+        if (msg_id == '') {
+            alert('请选择数据');
+            return false;
+        } else {
+            user_id = hlogo.uid;
+            msg_id = msg_id.substring(0, msg_id.lastIndexOf(','));
+            console.log('uid:' + user_id + ' msg_id:' + msg_id);
+            if (!confirm('确认要删除选中的数据？')) {
+                return false;
+            } else {
+                //做删除数据刷新页面
+                // window.location.href = window.document.location.href;
+            }
+        }
+    });
+
+    /*我的消息-消息详情*/
+    function msg_detail(msg_id) {
+        var msg_content = $('#con_' + msg_id).html();
+        //显示弹出框
+        $('#dialogs2').show();
+        $('#dialog_msg3').html(msg_content);
+    }
+
+    /*我的消息-详情确定关闭*/
+    $('#dialog_ok2').click(function () {
+        $('#dialogs2').hide();
+    });
+
+    /*复制礼包*/
+
+    function copy_card(id) {
+        var clipboard = new Clipboard('#copy_card_'+id);
+        clipboard.on('success', function (e) {
+            alert("礼包码复制成功");
+            e.clearSelection();
+
+        });
+        clipboard.on('error',function(e){
+            e.clearSelection();
+            alert('复制失败');
+        });
+    }
+
+
+    //方法栏
+
+    /*个人中心*/
+    /*个人资料(这里没有做判断需要拿到后台返回判断的接口在显示数据)*/
+    $('#save').click(function () {
+        // var referrer = window.document.location.href,
+        //获取页面输入的值
+        //     phone_number = $('#phone_number').val(),
+            weixin = $('#weixin').val(),
+            nickname = $('#nick_name').val(),
+            gender = $('.personalInfo .sex input:checked').val(),
+            qq = $('#qq').val();
+        console.log(nickname, gender, weixin, qq);
+        //把获取到的值传给后台,通过后台给的接口返回数据显示页面
+        // if (res.code = 200) {
+            // window.location.href = "/pc/user";
+            var nickname = '';
+            if (hlogo.nickname == null || hlogo.nickname == '') {
+                nickname = hlogo.uid;
+            } else {
+                nickname = hlogo.nickname;
+            }
+            $('#nickname').html(nickname);
+            $('.personalInfo .nickname input').val(nickname);
+            var ID = hlogo.uid;
+            $('#ID').html('ID: ' + ID);
+            var gender = hlogo.gender;
+            if (gender == 1) {
+                $('.personalInfo .sex input.nan').prop('checked', true);
+            } else {
+                $('.personalInfo .sex input.nv').prop('checked', true);
+            }
+            var weixin = hlogo.contact_wechat;
+            $('.personalInfo .weixin input[name="weixin"]').val(weixin);
+
+            var qq = hlogo.contact_qq;
+            $('.personalInfo .qq input[name="qq"]').val(qq);
+
+        // }
+
+
+    });
+
+    /*发送用户信息（code）*/
+    function PostUserInfo(nickname, gender, realname, id_card, phone_number, qq, weixin, referrer) {
+        hlogo.nickname = nickname;
+        hlogo.realname = realname;
+        hlogo.idcardNo = id_card;
+
+        if (hlogo.code == "200") {
+            //需要跟
+            alert(hlogo.msg);
+            window.location.href = "/pc/user";
+        } else {
+            alert("请填写正确的用户信息");
+        }
+    }
+
+    /*实名认证*/
+    $('.verified .btn').click(function () {
+        var realname = $('#realname').val(),
+            id_card = $('#id_card').val();
+
+        if ($('#realname').attr('readonly') == 'readonly' || $('#id_card').attr('readonly') == 'readonly') {
+            alert('实名认证已完成');
+            return false;
+        }
+        if (realname == '' || id_card == '') {
+            alert('请输入正确信息');
+            return false;
+        }
+        var referrer = window.document.location.href,
+            phone_number = $('#phone_number').val(),
+            weixin = $('#weixin').val(),
+            nickname = $('#nickname').html(),
+            gender = $('.personalInfo .sex input:checked').val(),
+            qq = $('#qq').val();
+        PostUserInfo(nickname, gender, realname, id_card, phone_number, qq, weixin, referrer);
+    });
+    //发送验证码
+    $('#send_code').click(function () {
+        var phone_number = $('#phone_number').val();
+        if (phone_number == '') {
+            alert('手机号不能为空');
+        } else {
+            if (!(/^1[3|4|5|7|8|9]\d{9}$/.test(phone_number))) {
+                alert("请输入有效的手机号");
+            } else {
+                if ($("#send_code").html() != '发送验证码') {
+                    return false;
+                } else {
+                    alert("发送成功");
+                }
+            }
+        }
+    });
+    //绑定手机号
+    $('.bindingPhone .btn').click(function () {
+        console.log('绑定手机');
+        var phone_number = $('#phone_number').val(),
+            code = $('#code').val();
+        if (phone_number == '' || code == '') {
+            alert('手机号/验证码不能为空');
+        } else {
+            if (!(/^1[3|4|5|7|8]\d{9}$/.test(phone_number))) {
+                alert("请输入有效的手机号");
+            } else {
+                if (hlogo.code == "200") {
+                    var referrer = window.document.location.href,
+                        realname = $('#realname').val(),
+                        id_card = $('#id_card').val(),
+                        phone_number = $('#phone_number').val(),
+                        weixin = $('#weixin').val(),
+                        nickname = $('#nickname').html(),
+                        gender = $('.personalInfo .sex input:checked').val(),
+                        qq = $('#qq').val();
+                    console.log(referrer, realname, id_card, phone_number, weixin, gender, qq);
+                    PostUserInfo(nickname, gender, realname, id_card, phone_number, qq, weixin, referrer);
+
+                } else {
+                    alert(hlogo.msg);
+                }
+            }
+        }
+    });
+
+    /*我的礼包*/
+
+    function myGifts(page = 0, page_size = 6) {
+        mygift.page = page;
+        mygift.page_size = page_size;
+        if (mygift.length < 6) {
+            $('.myGiftPack .load_more a').unbind();
+            $('.myGiftPack .load_more a').html('没有更多数据');
+        }
+    }
+
+    /*充值记录*/
+    function RecordList(referrer, page = 0, page_size = 8, cz = '') {
+
+    }
+
+    //    选择列表
+    $('.personal_two .personal_left ul li').click(function () {
+        var type_num = $(this).index();
+        console.log('类型' + type_num);
+        var referrer = window.document.location.href;
+        if (type_num == 1) {
+            console.log('账号安全：' + referrer);
+            if (hlogo.code == 200) {
+                console.log(hlogo.code);
+                var mobile = hlogo.data.contact_mobile;
+                if (mobile) {
+                    $('#phone_number').val(mobile);
+                }
+                var realname = hlogo.data.realname;
+                if (realname != "") {
+                    var name = realname.substring(0, 1) + '**';
+                    if (name) {
+                        $('#realname').val(name);
+                        $('#realname').attr('readonly', true);
+                    }
+                }
+                var idcard = hlogo.data.idcardNo;
+                if (idcard != "") {
+                    var idcardNo = idcard.substring(0, 4) + '*******' + idcard.substring(14, 18);
+                    if (name) {
+                        $('#id_card').val(idcardNo);
+                        $('#id_card').attr('readonly', true);
+                    }
+                }
+            } else {
+                // alert(hlogo.msg);
+                // window.location.href = "/pc/user/my_center.html";
+            }
+
+        } else if (type_num == 2) {
+            console.log('充值记录：' + referrer);
+            RecordList(referrer);
+
+        } else if (type_num == 3) {
+            console.log('我的礼包：' + referrer);
+            $('.myGiftPack .load_more a').unbind('click').click(function () {
+                var page = $('#my_gifts li').length;
+                myGifts(page / 6, 6);
+                console.log(page);
+            });
+        } else if (type_num == 4) {
+            console.log('我的消息：' + referrer);
+        } else if (type_num == 5) {
+            console.log('客服中心：' + referrer);
+            console.log(msg_detail(2));
+        } else if (type_num == 6) {
+            console.log('VIP特权：' + referrer);
+        } else if (type_num == 7) {
+            console.log('任务活动：' + referrer);
+        }
+    });
+
+    //    左侧栏点击切换
+    $('.personal_two .personal_left ul li').click(function () {
+        var li_num = $(this).index();
+        $(this).siblings().removeClass('on');
+        $(this).addClass('on');
+        console.log(li_num);
+        switch (li_num) {
+            case 0:
+
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .personalInfo').css('display', '');
+                $('.personal_two .personal_right .personalInfo').siblings().css('display', 'none');
+                break;
+            case 1:
+
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .accountSecurity').css('display', '');
+                $('.personal_two .personal_right .accountSecurity').siblings().css('display', 'none');
+                break;
+            case 2:
+
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .rechargeRecord').css('display', '');
+                $('.personal_two .personal_right .rechargeRecord').siblings().css('display', 'none');
+                break;
+            case 3:
+
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .myGiftPack').css('display', '');
+                $('.personal_two .personal_right .myGiftPack').siblings().css('display', 'none');
+                break;
+            case 4:
+
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .myMessage').css('display', '');
+                $('.personal_two .personal_right .myMessage').siblings().css('display', 'none');
+                break;
+            case 5:
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .customerService').css('display', '');
+                $('.personal_two .personal_right .customerService').siblings().css('display', 'none');
+                break;
+            case 6:
+
+                $('.personal_two .personal_left ul div').height(236);
+                $('.personal_two .personal_right .vipPrivilege').css('display', '');
+                $('.personal_two .personal_right .vipPrivilege').siblings().css('display', 'none');
+                break;
+            case 7:
+
+                $('.personal_two .personal_left ul div').height(509);
+                $('.personal_two .personal_right .task').css('display', '');
+                $('.personal_two .personal_right .task').siblings().css('display', 'none');
+                break;
+        }
+    });
+
+
+    //个人中心-我玩过的
+    // IPlayed();
+    // function IPlayed() {
+    //             console.log(iplay);
+    //             if (iplay.length > 0) {
+    //                 var iplayed = '';
+    //                 for (var i = 0; i < iplay.length; i++) {
+    //                     if (iplay.data.game_history[i]) {
+    //                         iplayed =$("#iPlayed").html(tp_iplay_page);
+    //                     }
+    //                 }
+    //                 $('.iPlayed').show();
+    //                 $('#iPlayed').html(iplayed);
+    //                 var mySwiper = new Swiper('.my_game_main', {
+    //                     freeMode: true,
+    //                     paginationClickable: true,
+    //                     slidesPerView: ''
+    //                 });
+    //             }
+    // }
+
+    Mission();
+    /*个人中心-任务活动*/
+    function Mission() {
+            //status=-1不能领取的状态
+            //status=0可以领取的状态
+            <!--id=a1领取 a2已领取 a3待完成 a4邀请好友的  a6充值 a7下载 a8设置-->
+            if (actitasks.status==0) {
+                document.getElementById("a1").style.display="block";
+            }else if (actitasks.status==-1) {
+
+                if(actitasks.id==2){
+                    document.getElementById("a4").style.display="block";
+                }else if(actitasks.id==6){
+                    document.getElementById("a6").style.display="block";
+                }else if(actitasks.id==12){
+                    document.getElementById("a7").style.display="block";
+                }else if(actitasks.id==9){
+                    document.getElementById("a8").style.display="block";
+                }else {
+                    document.getElementById("a3").style.display="block";
+                }
+
+            }
+    }
+</script>
+
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="/pc">关于我们</a> | <a href="/pc">商务合作</a> |
+                <a href="/pc">家长监护</a> | <a href="/pc">联系我们</a> |
+                <a href="" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="../../pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--右侧栏二维码-->
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="../../pcStatic/images/appDownload.png" alt="">
+</a>
+<!--返回顶部按钮-->
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="../../pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        var scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop === 0) clearTimeout(scrolldelay);
+    }
+
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+    /*游戏搜索*/
+    function game_search() {
+        var game_key = $('#game_key').val();
+        console.log(game_key);
+        if (game_key == '') {
+            var gameKey = $('#gameKey').val();
+            console.log(gameKey);
+            if (gameKey == '') {
+                alert('请输入游戏名称');
+                return false;
+            } else {
+                window.location.href = '/pc/game?k=' + gameKey;
+            }
+        } else {
+            window.location.href = '/pc/game?k=' + game_key;
+        }
+
+    }
+</script>
+
+
+</body>
+
+</html>

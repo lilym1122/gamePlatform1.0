@@ -1,0 +1,513 @@
+/*reset+cssåº“*/
+@charset "utf-8";
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form {
+    margin: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+}
+
+body {
+    font-size: 0.7rem;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1.6;
+    font-family: "å¾®è½¯é›…é»‘";
+    color: #333;
+    background: #ffffff;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0px auto;
+    overflow-x: hidden;
+}
+
+a {
+    blr: expression(this.onFocus=this.blur())
+}
+
+/* */
+/*a{ -webkit-tap-highlight-color:rgba(0,0,0,0);  }  åŽ»æŽ‰é“¾æŽ¥è§¦æ‘¸é«˜äº® */
+body, input {
+    font: 0.7rem/1.2rem "å¾®è½¯é›…é»‘", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1";
+}
+
+input, button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+ul, ol, li, dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+i, em, b {
+    font-style: normal;
+    font-weight: normal;
+    list-style: none;
+}
+
+/*img{border: none;max-width: 100%;max-height: 100%;vertical-align: middle;}*/
+mark {
+    background: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cl {
+    clear: both;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+.tl {
+    text-align: left;
+}
+
+.c0 {
+    color: #000;
+}
+
+.c3 {
+    color: #333;
+}
+
+.c6 {
+    color: #666;
+}
+
+.c9 {
+    color: #999;
+}
+
+.cf {
+    color: #fff;
+}
+
+.vm {
+    vertical-align: middle;
+}
+
+.vt {
+    vertical-align: top;
+}
+
+.vb {
+    vertical-align: bottom;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.pf {
+    position: fixed;
+}
+
+.toh {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.op {
+    filter: Alpha(opacity=0);
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    -ms-opacity: 0;
+    -o-opacity: 0;
+    opacity: 0;
+}
+
+.db {
+    display: block;
+}
+
+.dtc {
+    display: table-cell;
+}
+
+.ma {
+    margin: 0 auto;
+}
+
+body {
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    overflow: hidden;
+}
+
+.wrap_top {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    background: #009aff;
+    color: #fff;
+    position: relative;
+}
+
+.wrap_top .back {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    font-size: 0.7rem;
+    font-family: "å¹¼åœ†";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.login_content {
+    padding: 0.5rem;
+    height: auto;
+    overflow: hidden;
+}
+
+.login_content .logo {
+    margin-top: 1rem;
+}
+
+.login_content .logo img {
+    width: 40%;
+}
+
+.login_content form {
+    padding: 0 0.6rem;
+    height: auto;
+    overflow: hidden;
+    margin-top: 0.6rem;
+}
+
+.login_content form dd {
+    width: 12.4rem;
+    height: 1.5rem;
+    margin-top: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-left: 1.4rem;
+    font-size: 0.7rem;
+    color: #bababa;
+}
+
+.login_content form dd.phone {
+    background: url(../../../images/i1.png) left center no-repeat;
+    background-size: 0.9rem 1rem;
+}
+
+.login_content form dd.code {
+    background: url(../../../images/i2.png) left center no-repeat;
+    background-size: 0.9rem 1rem;
+}
+
+.login_content form dd.password {
+    background: url(../../../images/i3.png) left center no-repeat;
+    background-size: 0.9rem 1rem;
+}
+
+.login_content form dd input.inputt {
+    width: 12.6rem;
+    color: #bababa;
+    height: 1.5rem;
+}
+
+.login_content form dd.code input {
+    width: 7.4rem;
+}
+
+.login_content form dd .codetext {
+    display: block;
+    width: 4.5rem;
+    height: 1.2rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    font-size: 0.6rem;
+    color: #bababa;
+    float: right;
+}
+
+.login_content form dd .codeimg {
+    border: none;
+    width: 4.5rem;
+    height: 1.2rem;
+    vertical-align: middle;
+}
+
+.login_content form dd.read {
+    margin-top: 0.7rem;
+    text-align: left;
+    padding-left: 0;
+    color: #bababa;
+    border-bottom: none;
+    font-size: 0.6rem;
+}
+
+.login_content form dd.read a {
+    color: #009aff;
+}
+
+.login_content form dd.read input {
+    margin-right: 0.2rem;
+}
+
+.login_content form input.sub {
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    border-radius: 1rem;
+    border: 1px solid #009aff;
+    margin: 0.2rem 0;
+    font-size: 0.7rem;
+}
+
+.login_content form input.sub.zc {
+    background: #009aff;
+    color: #fff;
+    margin-top: 0.8rem;
+}
+
+.login_content form input.sub.dl {
+    color: #009aff;
+}
+
+.login_content p.err-msg {
+    color: #f00;
+    font-size: 12px;
+    text-align: left;
+    height: 20px;
+}
+
+#forget_btn {
+    float: right;
+}
+
+#return {
+    float: right;
+}
+
+.login_other {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 0.8rem;
+}
+
+.login_other .title {
+    margin: 0 auto;
+    width: 90%;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: 0.7rem;
+    color: #ccc;
+    position: relative;
+}
+
+.login_other .title:before {
+    content: "";
+    width: 36%;
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    top: 0.69rem;
+}
+
+.login_other .title:after {
+    content: "";
+    width: 36%;
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    right: 0;
+    top: 0.69rem;
+}
+
+.login_other ul {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 0.8rem;
+}
+
+#login_other_showwechat li {
+    width: 33.333%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+#login_other li {
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.login_other ul li i {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.login_other ul li i img {
+    width: 100%;
+}
+
+.login_other ul li p {
+    width: 100%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.7rem;
+    color: #8b8b8b;
+}
+
+@media (min-width: 640px) {
+    img {
+        border: none;
+        max-height: 100%;
+        vertical-align: middle;
+    }
+
+    .login_content .logo {
+        margin-top: 20px;
+    }
+
+    .login_content form {
+        padding: 0 16px;
+        margin-top: 16px;
+    }
+
+    .login_content form dd {
+        height: 50px;
+        margin-top: 20px;
+        padding-left: 46px;
+        font-size: 14px;
+    }
+
+    .login_content form dd.phone {
+        background: url(../../../images/i1.png) left center no-repeat;
+
+        background-size: 30px 34px;
+    }
+
+    .login_content form dd.code {
+        background: url(../../../images/i2.png) left center no-repeat;
+        background-size: 30px 34px;
+    }
+
+    .login_content form dd.password {
+        background: url(../../../images/i3.png) left center no-repeat;
+        background-size: 30px 34px;
+    }
+
+    .login_content form dd input.inputt {
+        width: 100%;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .login_content form dd.code input {
+        width: 76%;
+    }
+
+    .login_content form dd .codetext {
+        display: block;
+        width: 20%;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+        font-size: 16px;
+    }
+
+    .login_content form dd .codeimg {
+        border: none;
+        max-width: 110%;
+        max-height: 110%;
+        vertical-align: middle;
+    }
+
+    .login_content form dd.read {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .login_content form dd.read input {
+        margin-right: 10px;
+    }
+
+    .login_content form input.sub {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 25px;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .login_content form input.sub.zc {
+        margin-top: 40px;
+    }
+
+    .login_other {
+        margin-top: 40px;
+    }
+
+    .login_other .title {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+    }
+
+    .login_other ul {
+        margin-top: 20px;
+    }
+
+    .login_other ul li i {
+        width: 60px;
+        height: 60px;
+    }
+
+    .login_other ul li p {
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+    }
+}

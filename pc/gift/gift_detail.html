@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="baidu-site-verification" content="nkyOAoF1TZ">
+    <meta property="qh.webmaster" content="555ad22c2b6a0">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="shortcut icon" href="/pcStatic/images/favicon.ico">
+    <title>4177游戏 - H5游戏平台</title>
+    <meta name="keywords" content="h5游戏,html5游戏,游戏中心,4177游戏,传奇世界,龙女传奇,雄霸传奇,口袋妖怪,手机页游助手">
+    <meta name="description"
+          content="4177游戏是H5游戏平台，提供传奇世界H5、决战沙城H5、烈火星辰H5、妖怪宝可萌H5等最热免费H5游戏在线玩，找不用下载手机网页游戏，独特手机页游助手微端4177游戏，让您解放微信窗口，畅享H5游戏生活。">
+    <link rel="stylesheet" type="text/css" href="../../pcStatic/css/bootstrap3.0.min.css">
+    <link rel="stylesheet" href="../../pcStatic/css/style.css?v=1.24">
+    <link rel="stylesheet" href="../../pcStatic/css/hui-reset.css">
+    <link rel="stylesheet" href="../../pcStatic/css/sign_in.css">
+    <script type="text/javascript" src="../../pcStatic/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../pcStatic/js/jquery.qrcode.min.js"></script>
+    <script src="../../pcStatic/js/clipboard.min.js"></script>
+</head>
+<body style="zoom: 1;" id="page_top">
+
+<!--登录注册-->
+<div id="login_cover" style="display: none;"></div>
+<div id="login_register" style="display: none;">
+    <div class="login-top">
+        <div class="login on">
+            <a>登录</a>
+        </div>
+        <div class="register">
+            <a>免费注册</a>
+            <span class="exit"><img src="/pcStatic/images/exit.png" alt=""></span>
+        </div>
+    </div>
+    <div class="login_bottom">
+        <div class="login">
+            <form action="" method="post">
+                <div class="input_text user_name">
+                    <img src="/pcStatic/images/zhanghao.png" alt="">
+                    <input type="text" name="" class="user_name" placeholder="用户名/手机号/邮箱"/>
+                </div>
+                <div class="input_text password">
+                    <img src="/pcStatic/images/pwd.png" alt="">
+                    <input type="text" name="" class="user_name" placeholder="请输入密码"/>
+                </div>
+                <div class="check">
+                    <label>
+                        <input type="checkbox" name="" class="check" checked/>
+                        下次自动登录
+                    </label>
+                    <a href="">忘记密码？</a>
+                </div>
+                <div class="login_btn">
+                    <input type="button" value="登录">
+                </div>
+
+                <div class="other">
+                    <span>其他账号登录：</span>
+                    <a href=""><img src="/pcStatic/images/weixin.png" alt=""></a>
+                    <a href=""><img src="/pcStatic/images/QQ.png" alt=""></a>
+                    <a href=""><img src="/pcStatic/images/weibo.png" alt=""></a>
+                </div>
+            </form>
+        </div>
+
+        <div class="register" style="display: none;">
+            <form action="" method="post">
+                <div class="input_text user_name">
+                    <img src="/pcStatic/images/zhanghao.png" alt="">
+                    <input type="text" name="" class="" placeholder=""/>
+                </div>
+                <div class="tips">
+                    <span>2-14个字符：英文、数字或中文</span>
+                </div>
+                <div class="input_text password">
+                    <img src="/pcStatic/images/pwd.png" alt="">
+                    <input type="text" name="" class="user_name"/>
+                </div>
+                <div class="tips">
+                    <span>8-20个字符（区分大小写）</span>
+                </div>
+                <div class="input_text password">
+                    <img src="/pcStatic/images/pwd.png" alt="">
+                    <input type="text" name="" class="user_name"/>
+                </div>
+                <div class="tips">
+                    <span>请再次输入密码</span>
+                </div>
+                <div class="login_btn">
+                    <input type="button" value="注册">
+                </div>
+                <div class="protocol">
+                    <label>
+                        <input type="checkbox" name="">
+                        已阅读并同意
+                        <a href="http://open.4177.com/user/protocol" target="_blank">《游戏用户服务协议》</a>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--签到日历-->
+<div id="sign_cover" style="display: none;">
+    <div id="signIn">
+        <div id="calendar"></div>
+        <div id="sign_note">
+            <span>已累计签到<i>0</i>次</span>
+            <span>金币<i style="font-size: 18px;">+0</i></span>
+        </div>
+        <div class="rules">
+            <p>签到规则</p>
+            <p>每日签到金币随机送，累计签到7、14、21、28赠送金币翻倍</p>
+            <p>累计签到记录次月清空</p>
+        </div>
+    </div>
+</div>
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="/pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="/pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="/pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+
+                <span id="LoginStatus">
+                    <a href="javascript:;" onclick="login_href()">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="javascript:;" onclick="login_href()">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="/pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="/pc/game"><img src="/pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="/pcStatic/images/4177.png"></a>
+
+
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+
+                        <a href="/pc" class="w ">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="http://www.4177.com/pc/game" class="">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="http://www.4177.com/pc/pay" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="http://www.4177.com/pc/server" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="http://www.4177.com/pc/gift" class="w on">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="http://www.4177.com/pc/news_list" class="w ">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="http://www.4177.com/pc/user" class="">个人中心</a>
+                </div>
+
+            </div>
+            <div class="search">
+
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--背景图-->
+<div id="bg_img">
+    <img src="../../pcStatic/images/beijing.jpg" alt="">
+</div>
+
+
+<!--中间主体内容-->
+<div id="content">
+    <div style="display: none;" id="page_name">gift_details</div>
+    <div style="display: none;" id="gift_id">1925</div>
+    <div class="position">
+        <span>当前位置：</span><a href="/pc">首页</a><a href="/pc/gift">>礼包</a>>礼包详情
+    </div>
+    <div class="middle_left">
+        <!--热门礼包-->
+        <div class="popularGiftPackage">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>热门礼包</span></span>
+
+            </div>
+            <ul id="popular">
+
+            </ul>
+        </div>
+
+
+    </div>
+
+    <div class="middle_right">
+        <!--礼包详情-->
+        <div class="giftDetails" id="gift_details">
+            <script type="text/html" id="tpl_gift_details">
+           <div class="gift_info">
+                <div class="gift_img"><img src="<%:=data.logo%>" alt=""></div>
+                <span>
+                    <p>新手礼包</p>
+                    <p>剩余：<div class="progress"><span class="sr_only"><%:=data.logo%>%</span><div class="progress_bar" style="width:10%;"></div></div></p>
+                    <p class="gift_btn">
+                        <a href="" class="enter">进入游戏</a>
+                        <a href="" class="receive">领取礼包</a>
+                    </p>
+                </span>
+            </div>
+            <div class="gift_content">
+                <p>礼包内容</p>
+                <div><%:=content%></div>
+            </div>
+            <div class="gift_content">
+                <p>有效期</p>
+                <div><%:=effect_start_time%>-<%:=effect_end_time%></div>
+            </div>
+            <div class="gift_content">
+                <p>领取步骤</p>
+                <div><%:=use_method%></div>
+            </div>
+            </script>
+        </div>
+
+        <!--相关礼包-->
+        <div class="RelatedPackage">
+            <div class="class_title" style="margin: 0 0;">
+                <i></i>
+                <span class="font_color"><span>相关礼包</span></span>
+            </div>
+            <ul id="relatedList">
+                <script type="text/html" id="tpl_relatedList">
+                    <%for(var i=0;i< list.length;i++){%>
+               <li>
+                    <a href="">
+                    <div class="gift_img"><img src="<%:=list[i].logo%>" alt=""></div>
+                    <p><%:=list[i].game_name%>-<%:=list[i].name%></p></a>
+                </li>
+                    <%}%>
+                </script>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="clear" style="clear: both;"></div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="clear" style="clear: both;"></div>
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="http://www.4177.com/pc/aboutus">关于我们</a> | <a href="http://www.4177.com/pc/contact">商务合作</a> |
+                <!--<a href="">人才招聘</a> |--> <a href="http://www.4177.com/pc/custody">家长监护</a> | <a
+                        href="http://www.4177.com/pc/contact">联系我们</a> | <a href="http://open.4177.com" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="/pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+</script>
+<div id="mask"></div>
+<div class="popup-box" id="popup_suc">
+    <h4>操作提示</h4>
+    <p><i class="icon-success"></i><span id="ltip"></span></p>
+    <div class="open-game"><a href="" id="play_game">进入游戏</a></div>
+    <div class="kahao">礼包卡号<em id="pop_card_num">1</em>
+        <div class="copy_code">
+            <a href="javascript:;" data-clipboard-action="copy" data-clipboard-target="#pop_card_num" id="copy_code"
+               onclick="copy_code()">复制礼包码</a>
+        </div>
+    </div>
+    <div class="btns"><a href="javascript:void(0);" onclick="">取消</a><a href="/pc/user?t=gift">我的礼包</a></div>
+</div>
+<div class="popup-box" id="popup_err">
+    <h4>操作提示</h4>
+    <p><i class="icon-fail"></i>很遗憾，领取失败！</p>
+    <p class="red">本礼包同一账号一天仅限领取一个！</p>
+    <div class="btns"><a href="javascript:void(0);" onclick="" style="border-right: none;width: 100%;">确定</a></div>
+</div>
+
+<div class="popup-box" id="weixin">
+    <h4>操作提示</h4>
+    <p style="font-size:14px;margin-bottom:20px;">先下载“4177游戏盒”，才能领取哟</p>
+    <div class="btns" id="pop_no_weixin_btn"><a href="javascript:void(0);" onclick="">取消</a><a
+            href="https://a.app.qq.com/o/simple.jsp?pkgname=com.h5.zl4177" target="_blank">前往下载</a></div>
+</div>
+<div id="check_mask"></div>
+
+<div class="popup-gggao" style="display: none;">
+    <a href="" id="gggao_href">
+        <img id="gggjump" src="http://dl.4177.com//181109/68d613615c9b1f1c79cff1cef9b10e099d74f956.png"
+             class="gggao_img">
+    </a>
+    <div class="gggao_btn"></div>
+</div>
+<div id="mask-gggao" style="display: none;"></div>
+
+<!--右侧悬浮-->
+<!--APP下载二维码-->
+<style type="text/css">
+    .app_download {
+        display: inline-block;
+        position: fixed;
+        z-index: 100;
+        right: 4%;
+        bottom: 16%;
+    }
+
+    .app_download img {
+        width: 80%;
+    }
+</style>
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="/pcStatic/images/appDownload.png" alt="">
+</a>
+
+
+<!--返回顶部按钮-->
+<style type="text/css">
+    .page_top {
+        display: inline-block;
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        line-height: 47px;
+        text-align: center;
+        background-color: rgba(204, 204, 204, .5);
+        z-index: 100;
+        right: 6%;
+        bottom: 5%;
+        border-radius: 30px;
+    }
+
+    .page_top img {
+        width: 70%;
+        height: 70%;
+    }
+
+    .page_top:hover {
+        background-color: #b5b5b5;
+    }
+</style>
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="/pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop == 0) clearTimeout(scrolldelay);
+    }
+</script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/pcStatic/js/swiper.min.js"></script>
+<script src="/pcStatic/js/pc.js?v=1.41"></script>
+<script src="/pcStatic/js/function.js?v=1.06"></script>
+
+</body>
+</html>

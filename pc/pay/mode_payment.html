@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>支付中心</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <style>
+        /* 支付中心弹出层 */*
+        body { text-align: center; margin: 0 auto !important; font: 12px/1.5 "Microsoft Yahei","Arial";}
+        {-webkit-tap-highlight-color: rgba(255,255,255,0);}
+        * {margin: 0;padding: 0;}
+        ol, ul, li, dd, dl, dt {list-style: none;}
+        .payMain{ min-width:320px; max-width:100%; margin:0 auto; background:rgba(238,238,238,1); color:#000;}
+        .payHeader{ position:relative; text-align:center; padding:8px 0; font-size:16px;}
+        .payHeader img{ position:absolute; top:12px; right:12px; width:16px; height:16px; display:block;}
+        .payInfo{ width:100%; background:#fff; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:6px 0; overflow:hidden;}
+        .payInfo li{ font-size:14px; padding:0 20px; text-align:left; margin:6px 0; line-height:18px;}
+        .payInfo li label{ width:60px; display:inline-block; margin-right:10px; color:#666;}
+        .payInfo li span{ width:170px; display:inline-block; vertical-align:top;}
+        .payInfo li span.orange{ color:#FF901D;}
+        .payModeTit{ padding:5px 20px; text-align:left; font-size:14px; color:#666; overflow:hidden;}
+        .payMode{ margin:0 0 0 0; background:#fff; border-top:1px solid #ccc; overflow:hidden;}
+        .payMode a{ position:relative; background:#fff; padding:10px 20px; border-bottom:1px solid #ccc; display:block; text-decoration:none; overflow:hidden;}
+        .payMode a:after{content:''; position:absolute; top:25px; right:20px; width:12px; height:12px; border:#ccc solid; border-width:1px 1px 0 0; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg);}
+        .payMode a i{ float:left; margin-right:10px;}
+        .payMode a i.icon-wx{ width:45px; height:45px; display:block; background:url(../../pcStatic/images/icon-wx.png) no-repeat; background-size:cover;}
+        .payMode a i.icon-zfb{ width:45px; height:45px; display:block; background:url(../../pcStatic/images/icon-zfb.png) no-repeat; background-size:cover;}
+        .payMode a i.icon-wz{ width:45px; height:45px; display:block; background:url(../../pcStatic/images/icon-wz.png) no-repeat; background-size:cover;}
+        .payMode a dl{ margin:0; padding:0; text-align:left;}
+        .payMode a dt{ font-size:14px; color:#000; line-height:24px;}
+        .payMode a dd{ font-size:12px; color:#848588;}
+        #wx_pay_btn, #ali_pay_btn, #balance_btn{display: none;}
+        .load-container{ display: none; text-align: center; position:fixed; top:50%; left:50%; z-index:10; width:160px; margin:-25% 0 0 -80px; padding:15px 0 5px 0; border-radius:6px; background:rgba(0,0,0,0.5);}
+        .load-container p{ text-align:center; color:#fff; font-size:16px; line-height:20px;}
+        .load-container img{ width:50px;margin-top: 10px;}
+        .tel-400{ height:30px; line-height:30px; color:#f00;}
+        .tel-400 a{color:#f00; text-decoration:none;}
+    </style>
+</head>
+
+<body>
+
+<div class="payBox">
+    <div class="payMain" id="payMain">
+        <script id="tpl_pay" type="text/html">
+        <div class="payHeader">
+            支付中心
+            <img src="../../pcStatic/images/icon-payClose.png" class="close" onclick="javascript:history.back(-1)">
+        </div>
+        <div class="payInfo">
+            <ul>
+                <li><label>游戏名称</label><span>4177充值</span></li>
+                <li><label>商品名称</label><span>充值60平台币</span></li>
+                <li><label>支付金额</label><span class="orange">6.00 元</span></li>
+            </ul>
+        </div>
+        <div class="payModeTit">
+            选择支付方式
+        </div>
+        <div class="payMode">
+            <a href="javascript:;" id="wx_pay_btn" style="display: block;">
+                <i class="icon-wx"></i>
+                <dl>
+                    <dt>微信支付</dt>
+                    <dd>微信安全支付</dd>
+                </dl>
+            </a>
+            <a href="javascript:;" id="ali_pay_btn" style="display: block;">
+                <i class="icon-zfb"></i>
+                <dl>
+                    <dt>支付宝支付</dt>
+                    <dd>支付宝安全支付</dd>
+                </dl>
+            </a>
+            <a href="javascript:;" id="balance_btn">
+                <i class="icon-wz"></i>
+                <dl>
+                    <dt>余额支付</dt>
+                    <dd>余额安全支付</dd>
+                </dl>
+            </a>
+        </div>
+        <div class="wx_pay_ewm" id="wx_native" style="display:none">
+            <img src="" id="wx_native_img">
+            <p>请打开微信扫描二维码完成支付</p>
+        </div>
+        <div class="tel-400" id="service_tel">
+            客服电话(工作日9:00~18:00)：<a href="tel:0592-5526652"><strong>0592-5526652</strong></a>
+        </div>
+        </script>
+    </div>
+</div>
+<div class="load-container" id="load_container">
+    <p>安全支付中</p>
+    <img src="https://passport.4177.com/assets/images/load.gif">
+</div>
+<script>
+    if('1' != '1') {
+        document.getElementById('service_tel').style.display = 'none';
+    }
+
+    var isMobile = function() {
+        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "nokia", "ucweb", "skyfire");
+        var ua = navigator.userAgent.toLowerCase();
+        for (var i = 0; i < mobileAgent.length; i++) {
+            if (ua.indexOf(mobileAgent[i]) != -1) {
+                return true
+            }
+        };
+        return false
+    };
+    var isWeixin = function() {
+        return /micromessenger/ig.test(navigator.userAgent)
+    };
+
+    var getPayStyle = function() {
+        if(this.isMobile()) {
+            if(this.isWeixin()) {
+                return 1;
+            }
+            return 2;
+        }else {
+            return 3;
+        }
+    };
+    var pay_style = getPayStyle();
+
+    if(0 >= 60){
+        if(pay_style != 1) {
+            document.getElementById('ali_pay_btn').style.display = 'block';
+        }
+        document.getElementById('wx_pay_btn').style.display = 'block';
+        document.getElementById('balance_btn').style.display = 'block';
+    }else{
+        if(pay_style == 1) {
+            window.top.location.href = 'https://passport.4177.com/pay/aiwxpay/AIAI20190505160038426431883940';
+        }else {
+            document.getElementById('ali_pay_btn').style.display = 'block';
+            document.getElementById('wx_pay_btn').style.display = 'block';
+        }
+    }
+
+    document.getElementById('ali_pay_btn').onclick = function(){
+        document.getElementById('load_container').style.display = 'block';
+        window.top.location.href = 'https://passport.4177.com/pay/alipay/AIAI20190505160038426431883940';
+    };
+
+    document.getElementById('balance_btn').onclick = function(){
+        document.getElementById('load_container').style.display = 'block';
+        window.top.location.href = 'https://passport.4177.com/pay/balance/AIAI20190505160038426431883940';
+    };
+
+    document.getElementById('wx_pay_btn').onclick = function(){
+        if(isMobile()) {
+            document.getElementById('load_container').style.display = 'block';
+            if(isWeixin()) {
+                window.top.location.href = 'https://passport.4177.com/pay/weixin/AIAI20190505160038426431883940';
+            }else {
+                window.top.location.href = 'https://passport.4177.com/pay/wxh5/AIAI20190505160038426431883940';
+            }
+        }else {
+            document.getElementById('wx_native_img').src = 'http://passport.4177.com/pay/aiewmPay/'+ 'AIAI20190505160038426431883940';
+            document.getElementById('wx_native').style.display = 'block';
+            starQuryOrderResultPolling('AIAI20190505160038426431883940');
+        }
+    };
+
+    var query_order_result_interval = null;
+
+    function starQuryOrderResultPolling (outTrandeNo) {
+        if(query_order_result_interval) {
+            clearInterval(query_order_result_interval);
+        }
+        query_order_result_interval = setInterval(function () {
+            queryOrderResult(outTrandeNo);
+        }, 1500);
+    };
+
+    function starQuryOrderResultPollingWXQR (outTrandeNo) {
+        if(query_order_result_interval) {
+            clearInterval(query_order_result_interval);
+        }
+        query_order_result_interval = setInterval(function () {
+            queryOrderResultWXQR(outTrandeNo);
+        }, 1500);
+    };
+
+    function stopQuryOrderResultPolling () {
+        if(query_order_result_interval) {
+            clearInterval(query_order_result_interval);
+        }
+        query_order_result_interval = null;
+    };
+
+    function queryOrderResult (outTradeNo) {
+        this.jsonp("http://passport.4177.com/pay/dzpay/orderResultCheck/" + outTradeNo, function (ret) {
+            if(ret.code == 200 && ret.data.status == 'success') {
+                window.top.location.href = 'https://passport.4177.com/pay/return?out_trade_no=AIAI20190505160038426431883940' + '&status=Success';
+//                window.top.location.reload();
+            }
+        });
+    };
+
+    function queryOrderResultWXQR (outTradeNo) {
+        this.jsonp("http://passport.4177.com/pay/orderResultCheck/" + outTradeNo, function (ret) {
+            if(ret.code == 200 && ret.data.status == 'success') {
+                window.top.location.href = 'https://passport.4177.com/pay/return?out_trade_no=AIAI20190505160038426431883940' + '&status=Success';
+//                window.top.location.reload();
+            }
+        });
+    };
+
+    function jsonp(url, callback) {
+        if (!url) {
+            return;
+        }
+        var a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']; //定义一个数组以便产生随机函数名
+        var r1 = Math.floor(Math.random() * 10);
+        var r2 = Math.floor(Math.random() * 10);
+        var r3 = Math.floor(Math.random() * 10);
+        var name = 'getJSONP' + a[r1] + a[r2] + a[r3];
+        var cbname = 'jsonp.' + name; //作为jsonp函数的属性
+        if (url.indexOf('?') === -1) {
+            url += '?callback=' + cbname;
+        } else {
+            url += '&callback=' + cbname;
+        }
+        var script = document.createElement('script');
+        //定义被脚本执行的回调函数
+        jsonp[name] = function (e) {
+            try {
+                callback && callback(e);
+            }catch (e) {
+                //
+            }
+            finally {
+                //最后删除该函数与script元素
+                delete jsonp[name];
+                script.parentNode.removeChild(script);
+            }
+        };
+        script.src = url;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    };
+
+</script>
+
+
+</body>
+</html>

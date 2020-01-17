@@ -1,0 +1,56 @@
+function getgmdetail() {
+var game_detail = [];
+var code = "200";
+var data = [];
+var msg = "成功";
+var details = [];
+var albums = [];
+data ["page"] = "0";
+data ["page_size"] = "10";
+data ["details"] = details;
+details["albums"] = albums;
+details["banner"] = "http://dl.4177.com//190424/8020990fc2408acea0c2dde09c09030b11379d6f.jpg";
+details["category"] = 1;
+details["click_num"] = 50;
+details["created_at"] = "2019-04-24 10:33:05";
+details["game_center_img"] = "http://dl.4177.com//190424/95b4b5f4a66347887e4a3bc8d69ec6583d46b171.jpg";
+details["game_detail_url"] = "http://www.4177.com/info/10890";
+details["game_play_url"] = "http://www.4177.com/game/10890";
+details["has_gift"] = 1;
+details["hot_rank"] = 99999;
+details["id"] = 10890;
+details["image"] = "http://dl.4177.com//190424/0e29c861e6000294597b6e1f61f839994c8d8492.jpg";
+details["intro"] = "《大圣传说》是一款经典的西游题材卡牌，传统的金木水火土属性相克，丰富的人物羁绊组合，一样的卡牌不一样的的组合玩法。大圣成圣传说之路，与君共闯九重天。大圣，此去欲何；踏南天，碎凌霄； 若一去不回；便一去不回！";
+details["logo"] = "http://dl.4177.com//190424/27c7ab99a4b6d66d06fc713ec7ffa0cb4f9c5c74.jpg";
+details["mobile_img"] = "http://dl.4177.com//190424/93e86bc21894f361a0be52f6bebd3d45a238d828.jpg";
+details["more_img"] = "";
+details["name"] = "大圣传说";
+details["new_img"] = "http://dl.4177.com//190424/01d896a714db42a016345c0df6f9a81f63be7c1b.jpg";
+details["new_rank"] = 99999;
+details["no_display_client"] = "0";
+details["pc_banner"] = "http://dl.4177.com//190424/cbc45be79e5042f2bd4addd530beb4dbc77be2dc.jpg";
+details["play_count"] = 0;
+details["popularity"] = 68712;
+details["recommend_rank"] = 99999;
+details["score"] = "4.5";
+details["slogan"] = "神佛诸天，唯我齐天";
+details["status"] = 1;
+details["support_https"] = 0;
+details["theme"] = 0;
+details["theme2"] = 0;
+details["type"] = 10;
+details["type_name"] = "角色扮演";
+details["updated_at"] = "2019-04-25 10:44:38";
+details["uptime"] = null;
+albums["0"] = "http://dl.4177.com//190424/90cbd9e794d5b0e1df26498acbb6dd2aa2549bb5.jpg";
+albums["1"] = "http://dl.4177.com//190424/b842dcd3085074c701ec2785e8fa38259a9bd01a.jpg";
+albums["2"] = "http://dl.4177.com//190424/1a91621f04afb9986d5ee5b1d9762fc43546a3d0.jpg";
+albums["3"] = "http://dl.4177.com//190424/0fb33a118fa7abd7d0a5a8ff31ccd03a2566a6b4.jpg";
+albums["4"] = "http://dl.4177.com//190424/3e1629901d233c5335ebd28400b73f4c2f3010c8.jpg";
+
+
+    game_detail["code"] = code;
+    game_detail["data"] = data;
+    game_detail["msg"] = msg;
+    return game_detail;
+}

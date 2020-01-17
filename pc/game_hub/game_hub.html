@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="../../pcStatic/images/favicon.ico">
+    <title>游戏中心</title>
+    <meta name="keywords" content="游戏中心,游戏,传奇世界,龙女传奇,雄霸传奇,口袋妖怪,手机页游助手">
+    <meta name="description"
+          content="游戏平台，提供传奇世界H5、决战沙城H5、烈火星辰H5、妖怪宝可萌H5等最热免费H5游戏在线玩，找不用下载手机网页游戏，独特手机页游助手微端4177游戏，让您解放微信窗口，畅享H5游戏生活。">
+    <link rel="stylesheet" type="text/css" href="../../pcStatic/css/bootstrap3.0.min.css">
+    <link rel="stylesheet" href="../../pcStatic/css/style.css?v=1.23">
+    <link rel="stylesheet" href="../../pcStatic/css/hui-reset.css">
+    <link rel="stylesheet" href="../../pcStatic/css/sign_in.css">
+    <link rel="stylesheet" href="../../pcStatic/css/swiper.min.css">
+    <link rel="stylesheet" href="../../pcStatic/css/xm_css/xm_css.css">
+    <link rel="stylesheet" href="../../pcStatic/css/myPagination.css">
+    <script src="../../pcStatic/js/myPagination.js"></script>
+    <script type="text/javascript" src="../../pcStatic/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../pcStatic/js/jquery.qrcode.min.js"></script>
+    <script src="../../pcStatic/js/clipboard.min.js"></script>
+
+
+</head>
+<body>
+<style>
+    .swiper-pagination-bullet{ width: 24px; height: 24px; background-color: #ffffff; opacity: 1;}
+    .swiper-pagination-bullet-active{background: url("../../pcStatic/images/icon_blue.png");}
+    .tp{top: 410px;}
+    .g{height: 550px;}
+</style>
+<!--头部-->
+<div id="header">
+    <div class="head_top">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:;" id="setting_homepage" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/home_icon.png" alt="">设为首页</a></li>
+                <li><a href="javascript:;" id="setting_favorite" title="4177游戏 - H5游戏平台"><img
+                        src="../../pcStatic/images/sc_icon.png" alt="">收藏</a></li>
+                <li><a href="/follow"><img src="../../pcStatic/images/hz_icon.png" alt="">游戏盒子</a></li>
+            </ul>
+            <div class="content_right">
+                <span id="LoginStatus">
+                    <a href="../../pc/login/login.html">登录</a>
+                    <span class="separator">&nbsp;|&nbsp;</span>
+                    <a href="../../pc/LoginAndRegist/login_regist.html">注册</a>
+                </span>
+                <i style="display: none" class="my_msg"></i>
+                <span id="my_msg" style="display: none"><a href="/pc/user?t=msg" style="margin-right: 15px;"><img
+                        src="../../pcStatic/images/msg.png" alt="">我的消息</a></span>
+                <span><a href="../../pc/game_hub/game_hub.html"><img src="../../pcStatic/images/yx_icon.png" alt="">所有游戏</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_bottom">
+        <div class="content">
+            <div class="logo">
+                <a href="/pc"><img src="../../pcStatic/images/4177.png" alt="分享你的快乐"></a>
+            </div>
+            <div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/index.html" class="">首页</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/game_hub/game_hub.html" class="on">游戏中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/pay/recharge.html" class="">充值中心</a>
+                </div>
+                <div class="yiji">
+                    <a href="../../pc/server/index.html" class="">开服表</a>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/gift/index.html" class="">礼包</a>
+                    </div>
+                </div>
+                <div class="yiji">
+                    <div>
+                        <a href="../../pc/news_list/index.html" class="">资讯</a>
+                    </div>
+                </div>
+                <div class="yiji" id="head_personal" style="display: none">
+                    <a href="../../pc/user/my_center.html" class="">个人中心</a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" name="game_key" id="game_key" value="" placeholder=""/>
+                <input type="hidden" id="gameKey" value=""/>
+                <input type="button" class="" value="" onclick="game_search()">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--轮播图.-->
+<div class="swiper-container swiper-container-fade swiper-container-horizontal g" >
+    <div class="swiper-wrapper" id="swiper_banner">
+
+    </div>
+    <!-- 分页器 -->
+    <div class="swiper-pagination tp"></div>
+</div>
+
+
+<!--中间内容-->
+<div id="content">
+    <div style="display: none;" id="page_name">game_center</div>
+    <div style="display: none" id="gameSearchKey"></div>
+    <!--推荐，新游，热门，页游，H5-->
+    <div class="MoreGames">
+        <div class="more_games_top" id="tb_game_top">
+            <a class="font_color on" >推荐</a>
+            <a class="font_color" >新游</a>
+            <a class="font_color" >热门</a>
+        </div>
+        <div class="more_games_bottom">
+            <div class="more_games recommend">
+                <ul id="recommend">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle_left">
+        <!--最新开服-->
+        <div class="latest_service">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>最新开服</span></span>
+                <a href="/pc/server">更多&gt;&gt;</a>
+            </div>
+            <ul id="latest_service">
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="middle_right">
+        <div class="clear" style="clear: both;"></div>
+        <!--游戏列表-->
+        <div class="game_list">
+            <div class="class_title">
+                <i></i>
+                <span class="font_color"><span>游戏列表</span></span>
+                <span id="totalGames">
+                    <script id="tt_game" type="text/html">
+                    共<%=getGameData().data.total%>个游戏
+                    </script>
+                </span>
+            </div>
+            <div class="yx_content">
+                <div class="c_top">
+                    <div class="classification type">
+                        <span>游戏类型：</span>
+                        <p id="game_type">
+                            <i style="display: none">game_type</i>
+                            <a class="on">不限</a>
+                            <a>益智游戏</a>
+                            <a>休闲游戏</a>
+                            <a>动作游戏</a>
+                            <a>射击游戏</a>
+                            <a>卡牌游戏</a>
+                            <a>角色扮演</a>
+                            <a>策略游戏</a>
+
+                        </p>
+                    </div>
+                    <div class="clear" style="clear: both;"></div>
+                </div>
+                <ul id="game_list">
+            <!--   游戏列表-->
+                </ul>
+
+                <div class="clear" style="clear: both;"></div>
+                <div class="page_btn" id="pages">
+                </div>
+
+            </div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+
+    </div>
+
+</div>
+<div class="clear" style="clear: both;"></div>
+<!--最新开服-->
+<script id="new_server" type="text/html">
+    <%for(var i=0;i< arr1.length;i++){%>
+    <li class="yx"><a href="/pc/info/<%=arr1[i].id%>">
+        <div class="yx_img">
+            <img src="<%=arr1[i].logo%>" alt="">
+        </div>
+        <div class="yx_info">
+            <span><%=arr1[i].game_name%></span><br>
+            <span class="fu"><%=arr1[i].server_name%></span><br>
+            <span class="sj"><%=arr1[i].open_time%></span>
+        </div>
+    </a>
+        <div>
+            <a href="/pc/info/<%=arr1[i].id%>"> </a>
+            <a href="<%=arr1[i].game_detail_url%>" target="_blank" onclick="game_click('{{arr1[i].server.id}}')">
+                <input type="button" value="进入">
+            </a>
+        </div>
+    </li>
+    <%}%>
+</script>
+<!--推荐-->
+<script id="tp_recommend" type="text/html">
+    <%for(var i=0;i< list2.length;i++){%>
+    <li class="yx" id="lm">
+        <a href="/pc/info/<%list2[i].id%>">
+            <div class="yx_img">
+                <img src="<%=list2[i].game_center_img%>" alt="">
+            </div>
+            <div class="game_cover" title="" style="display: none;" id="ln">
+                <div id="recommend_game_<%=list2[i].id%>" class="game_qr_code"></div>
+                <div class="game_info">
+                    <p class="p1"><%=list2[i].name%></p>
+                    <p class="p2"><%=list2[i].popularity%>&nbsp;人玩过</p>
+                    <p class="p3">类型：<%=list2[i].type_name%></p>
+                    <p class="p4">扫一扫，直接玩</p>
+                </div>
+            </div>
+        </a>
+        <div class="yx_info">
+            <a href="/pc/info/<%list2[i].id%>">
+                <span><%=list2[i].name%></span>
+            </a>
+            <a href="<%list2[i].game_center_img%>" target="_blank" onclick="game_click('<%list2[i].id%>')">
+                <input type="button" class="game_start" value="开始游戏">
+            </a>
+        </div>
+    </li>
+    <%}%>
+</script>
+<!--轮播-->
+<script id="tp_banner" type="text/html">
+    <%for(var i=0;i< list.length;i++){%>
+    <div class="swiper-slide swiper-slide-prev">
+        <a href="<%=list[i].url%>" target="_blank">
+            <img src="<%=list[i].pc_banner%>" alt=""></a>
+    </div>
+    <%}%>
+</script>
+<!--游戏列表-->
+<script id="tpl_game_list" type="text/html">
+    <%for(var i=0;i< arr2.length;i++){%>
+    <li class="yx" >
+        <a href="/pc/info/<%=arr2[i].id%>">
+            <div class="yx_img" id="yx_show">
+                <img src="<%=arr2[i].logo%>" alt="">
+            </div>
+            <div class="game_cover" title="" id="gc_show">
+                <div id="list_game_<%=arr2[i].id%>" class="game_qr_code"></div>
+            </div>
+        </a>
+        <div class="yx_info">
+            <a href="/pc/info/<%=arr2[i].id%>">
+                <span class="yx_name"><%=arr2[i].name%></span>
+                <div>
+                    <span><%=arr2[i].type_name%></span> <br>
+                    <span><%=arr2[i].popularity%>人在玩</span>
+                </div>
+            </a>
+            <a href="<%=arr2[i].game_play_url%>" target="_blank" onclick="game_click(10895)">
+                <input type="button" class="game_start" value="开始游戏">
+            </a>
+        </div>
+    </li>
+    <%}%>
+</script>
+<script src="../../pcStatic/js/data/colours_drawing/game_hub.js"></script>
+<script src="../../pcStatic/js/data/gamelist/gamelist.js"></script>
+<script src="../../pcStatic/js/template.js"></script>
+<script type="text/javascript" src="../../pcStatic/js/swiper.min.js"></script>
+<script>
+    console.log(game_hub());
+//banner图
+    var list=[];
+    var top_banners=game_hub().data.top_banners;
+    list[0]=top_banners;
+    list[1]=top_banners;
+    var tp_banner = $("#tp_banner").html();
+    var tp_banner_page = template(tp_banner, list);
+    $("#swiper_banner").html(tp_banner_page);
+//推荐，新游戏，热门
+    var list2=[];
+    var recommend_games=game_hub().data.recommend_games;
+    list2[0]=recommend_games;
+    list2[1]=recommend_games;
+    var tp_recommend = $("#tp_recommend").html();
+    var tp_recommend_page = template(tp_recommend, list2);
+    $("#recommend").html(tp_recommend_page);
+//最新开服
+    var arr1=[];
+    var newserv_games=game_hub().data.server;
+    arr1[0]=newserv_games;
+    var new_server = $("#new_server").html();
+    var tp_newserv_page = template(new_server, arr1);
+    $("#latest_service").html(tp_newserv_page);
+//游戏列表
+    var arr2=[];
+    var gamelists=getGameData().data.game_list;
+    arr2[0]=gamelists;
+    arr2[1]=gamelists;
+    console.log(getGameData());
+    var tpl_game_list = $("#tpl_game_list").html();
+    var tp_gamelist_page = template(tpl_game_list, arr2);
+    $("#game_list").html(tp_gamelist_page);
+//共多少个游戏数
+    var tt_game = $("#tt_game").html();
+    var tp_tt_page = template(tt_game, gamelists);
+    $("#totalGames").html(tp_tt_page);
+    // Pages(2);
+
+
+//banner图分页
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay:true,//等同于以下设置
+        loop:true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            bulletElement : 'span',
+            clickable :true,
+        },
+    });
+
+
+    /*分页*/
+    new Page({
+        id: 'pagination',
+        curPage: 1, //初始页码
+        pageTotal: 13, //总页数
+        pageAmount: 28, //每页多少条
+        dataTotal: 500, //总共多少条数据
+        pageSize: 5, //可选,分页个数
+        showPageTotalFlag: false, //是否显示数据统计
+        showSkipInputFlag: true, //是否支持跳转
+        getPage: function(page) {
+            //获取当前页数
+            console.log(page);
+        }
+    });
+
+    Boutique();
+    GameList();
+    //推荐
+    function Boutique() {
+
+        var recommend='';
+        var GameId = [], GamePlayUrl = [];
+        // for (var i=0;i<list2.length;i++) {
+            GameId.push(list2[0]['id']);
+            GamePlayUrl.push(list2[0]['game_play_url']);
+
+        // }
+        GamePlayQrCode(GameId, GamePlayUrl, 'recommend');
+        var lm = document.getElementById("lm");
+        var ln = document.getElementById("ln");
+        lm.onmousemove = function() {
+            ln.style.display="none";
+        }
+        lm.onmouseout = function() {
+            ln.style.display="none";
+        }
+
+
+    }
+
+    //游戏列表的二维码
+    function GameList() {
+        var list='';
+        var GameId = [], GamePlayUrl = [];
+        GameId.push(arr2[0]['id']);
+        GamePlayUrl.push(arr2[0]['game_play_url']);
+        GamePlayQrCode(GameId, GamePlayUrl, 'list');
+        //鼠标移入移出
+        var yx_show=document.getElementById("yx_show");
+        var gc_show=document.getElementById("gc_show");
+        yx_show.onmousemove = function() {
+            gc_show.style.display="none";
+        }
+        yx_show.onmouseout = function() {
+            gc_show.style.display="none";
+        }
+    }
+
+    //生成游戏二维码recommend _game_ 10895
+    function GamePlayQrCode(game_id, game_play_url, type) {
+        console.log(game_id,game_play_url,type);
+        var width = 90,height=90;
+        if(type == 'recommend'){
+            width = 90;
+            height = 90;
+        }else if (type == 'list'){
+            width = 80;
+            height = 80;
+        }
+        for(var i = 0; i < game_id.length; i++ ){
+            // 生成二维码
+            $('#'+type+'_game_'+game_id[i]).qrcode({
+                render: "canvas",
+                width: width,
+                height: height,
+                text: game_play_url[i]
+            });
+        }
+
+    }
+
+    //推荐面板
+    tab_boutique();
+    function tab_boutique() {
+        // var tb_game_top=document.getElementById("tb_game_top");
+        // var aa=document.getElementsByClassName("more_games_bottom");
+
+        $('.more_games_top a').click(function () {
+            $(this).addClass('on');
+            $(this).siblings().removeClass('on');
+            var type_name = $(this).html(), type = '';
+            page = $('#recommend li.yx').length;
+            console.log(type_name,page);
+            if (type_name == '推荐') {
+                $("#recommend").html(tp_recommend_page);
+                // url='';
+                console.log(type);
+                type = 1;
+            } else if (type_name == '新游') {
+                $("#recommend").html(tp_recommend_page);
+                type = 2;
+                console.log(type);
+            } else if (type_name == '热门') {
+                $("#recommend").html(tp_recommend_page);
+                type = 3;
+                console.log(type);
+            }
+            return type;
+        });
+
+
+    }
+    tab_gamelist();
+    function tab_gamelist() {
+        $('#game_type a').click(function () {
+            $(this).addClass('on');
+            $(this).siblings().removeClass('on');
+            var type_name = $(this).html(), type = '';
+            page = $('#game_list li.yx').length;
+            console.log(type_name,page);
+            if (type_name="不限"){
+                $("#recommend").html(tp_recommend_page);
+
+
+            }else if (type_name="益智游戏"){
+                $("#recommend").html(tp_recommend_page);
+
+            }
+            else if (type_name="休闲游戏"){
+                $("#game_list").html(tp_gamelist_page);
+
+            }
+            else if (type_name="动作游戏"){
+                $("#game_list").html(tp_gamelist_page);
+            }
+            else if (type_name="射击游戏"){
+                $("#game_list").html(tp_gamelist_page);
+            }
+            else if (type_name="卡牌游戏"){
+                $("#game_list").html(tp_gamelist_page);
+            }
+            else if (type_name="角色扮演"){
+                $("#game_list").html(tp_gamelist_page);
+            }
+            else if (type_name="策略游戏"){
+                $("#game_list").html(tp_gamelist_page);
+            }
+        });
+    }
+
+
+</script>
+<!--底部-->
+<div id="bottom">
+    <div class="content">
+        <div class="bottom_info">
+            <p><a href="/pc">关于我们</a> | <a href="/pc">商务合作</a> |
+                <a href="/pc">家长监护</a> | <a href="/pc">联系我们</a> |
+                <a href="" target="_blank">开放平台</a>
+            </p>
+            <p><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备17007102号-3</a>
+                <a href="http://www.4177.com/download/lyy-www.jpg" target="_blank">闽网文〔2017〕8588-222号</a></p>
+            <p>© 2012-2019 &nbsp;4177.com All rights reserved &nbsp;&nbsp; 微信公众号：4177游戏</p>
+            <p>抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益闹 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+            <div class="qr_code">
+                <div>
+                    <span id="DownloadBox"></span><br>
+                    <span>扫一扫，下载盒子</span>
+                </div>
+                <div>
+                    <img src="../../pcStatic/images/gzh.png" alt=""><br>
+                    <span>扫一扫，关注公众号</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--右侧栏二维码-->
+<a href="javascript:;" class="app_download" title="扫一扫，下载APP">
+    <img src="../../pcStatic/images/appDownload.png" alt="">
+</a>
+<!--返回顶部按钮-->
+<a href="javascript:;" onclick="pageScroll()" class="page_top" title="返回顶部">
+    <img src="../../pcStatic/images/arrowup.png" alt="">
+</a>
+<script type="text/javascript">
+    function pageScroll() {
+        window.scrollBy(0, -100);
+        var scrolldelay = setTimeout('pageScroll()', 10);
+        var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+        if (sTop === 0) clearTimeout(scrolldelay);
+    }
+
+    //jq 生成二维码
+    $('#DownloadBox').qrcode({
+        render: "canvas",
+        width: 90,
+        height: 90,
+        text: 'http://www.4177.com/follow'
+    });
+
+</script>
+</body>
+</html>
